@@ -17,7 +17,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body class="bg-light">
-        <div id="root" class="container pt-lg-5 mt-lg-5">
+        <div id="root" class="container pt-lg-5 mt-lg-5 pb-lg-5">
             @yield('content')
         </div>
 </body>
