@@ -12,10 +12,14 @@ class TeleconsultationController extends Controller
         return view('tele.index');
     }
 
-
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function create()
     {
-        return view('tele.create');
+        //
     }
 
     /**

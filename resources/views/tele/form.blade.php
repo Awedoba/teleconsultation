@@ -1,3 +1,4 @@
+
 <div class="row">
     <h1>Teleconsultation Form</h1>
 </div>
@@ -440,7 +441,12 @@
                     </div>
                 </div>
             </div>
+    <div class="col-4">
+        <label for="firstName">First name</label>
+        <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+        <div class="invalid-feedback">
+            Valid first name is required.
         </div>
     </div>
-    <button type="submit" class="btn btn-primary ml-3">Save</button>
+    <div class="col-6"></div>
 </div>
