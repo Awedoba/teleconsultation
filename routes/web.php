@@ -14,8 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//Route::get('/', function () {
-//    return view('tele.index');
-//});
+Route::get('/1', function () {
+    return view('tele.view');
+});
 
 Route::resource('/',TeleconsultationController::class);

@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-md-6 col-sm-12">
                 <label for="firstName">Encounter Date</label>
-                <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+                <input type="date" class="form-control" id="firstName" placeholder="" value="" required>
                 @error('name')
                 <div class="invalid-feedback">
                     {{ $message }}

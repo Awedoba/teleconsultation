@@ -12,17 +12,23 @@
             <thead>
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
+                <th scope="col">Encounter Date</th>
+                <th scope="col">Facility</th>
+                <th scope="col">District</th>
+                <th scope="col">Patient name</th>
+                <th scope="col">Name of caller</th>
+                <th scope="col">Name of TCC Staff</th>
             </tr>
             </thead>
             <tbody>
             <tr>
                 <th scope="row">1</th>
+                <td>10/17/2021</td>
+                <td>blah</td>
+                <td>ga-east</td>
                 <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
+                <td>paul caller</td>
+                <td>Alex staff</td>
             </tr>
             </tbody>
         </table>
