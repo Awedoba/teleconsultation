@@ -25,7 +25,6 @@ class CreateTeleconsultTable extends Migration
             $table->string('tcc_serial_no');
             $table->string('nhis_no');
             $table->string('national_id');
-            $table->string('community');
             $table->string('facility');
             $table->string('sub_district');
             $table->string('region');

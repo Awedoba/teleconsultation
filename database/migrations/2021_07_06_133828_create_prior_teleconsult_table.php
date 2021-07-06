@@ -18,7 +18,7 @@ class CreatePriorTeleconsultTable extends Migration
             $table->timestamps();
             $table->string('medication');
             $table->string('dosages');
-            $table->string('medication');
+            $table->string('medication_form');
             $table->string('amount_dispensed');
         });
     }
