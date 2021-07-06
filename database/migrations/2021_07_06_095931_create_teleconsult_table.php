@@ -29,6 +29,21 @@ class CreateTeleconsultTable extends Migration
             $table->string('facility');
             $table->string('sub_district');
             $table->string('region');
+            $table->date('date_of_birth');
+            $table->integer('age');
+            $table->string('sex');
+            $table->float('weight');
+            $table->float('temperature');
+            $table->string('blood_pressure');
+            $table->integer('heart_rate');
+            $table->float('respiratory_rate');
+            $table->string('complaint');
+            $table->string('diagnosis');
+            $table->string('tg_condition');
+            $table->string('cc_physician');
+            $table->string('physician_name');
+            $table->boolean('referred_to_hospital');
+            //$table->
         });
     }
 
