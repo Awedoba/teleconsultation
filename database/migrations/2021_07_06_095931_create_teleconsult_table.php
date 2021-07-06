@@ -42,8 +42,12 @@ class CreateTeleconsultTable extends Migration
             $table->string('tg_condition');
             $table->string('cc_physician');
             $table->string('physician_name');
+            $table->boolean('prior_referred_to_hospital');
+            $table->boolean('ambulance');
+            $table->string('other');
             $table->boolean('referred_to_hospital');
-            //$table->
+            $table->string('name_of_caller');
+            $table->integer('contact_of_caller');
         });
     }
 
