@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class DuringTeleconsult extends Model
 {
     use HasFactory;
+
+    protected $fillables = [
+        'medications',
+        'quantity'
+    ];
 }
