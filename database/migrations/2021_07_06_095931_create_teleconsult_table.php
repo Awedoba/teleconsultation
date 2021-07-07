@@ -27,6 +27,7 @@ class CreateTeleconsultTable extends Migration
             $table->string('national_id');
             $table->string('facility');
             $table->string('sub_district');
+            $table->string('district');
             $table->string('region');
             $table->date('date_of_birth');
             $table->integer('age');
@@ -47,6 +48,7 @@ class CreateTeleconsultTable extends Migration
             $table->boolean('referred_to_hospital');
             $table->string('name_of_caller');
             $table->integer('contact_of_caller');
+            $table->integer('tcc_staff');
         });
     }
 

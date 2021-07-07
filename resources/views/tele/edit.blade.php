@@ -1,4 +1,4 @@
-@extends('layout.base',['pagetitle'=>'New Patient'])
+@extends('layout.base',['pagetitle'=>'Edit Teleconsult'])
 @section('content')
     <form action="{{route('update')}}" method="post">
         @csrf

@@ -1,6 +1,6 @@
-@extends('layout.base',['pagetitle'=>'New Patient'])
+@extends('layout.base',['pagetitle'=>'Add Teleconsult'])
 @section('content')
-    <form action="{{route('store')}}" method="post">
+    <form action="{{route('store')}}" method="post" class="bg-white p-4">
         @csrf
         @include('tele.form')
     </form>
