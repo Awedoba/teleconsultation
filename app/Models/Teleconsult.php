@@ -10,7 +10,7 @@ class Teleconsult extends Model
     use HasFactory;
 
     protected $fillable = [
-         'encounter_date',
+            'encounter_date',
             'community',
             'patient_first_name',
             'patient_middle_name',
@@ -43,5 +43,9 @@ class Teleconsult extends Model
             'name_of_caller',
             'contact_of_caller'
         ];
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
+
 
 }

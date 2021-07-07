@@ -2,11 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Teleconsult;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TeleconsultationController extends Controller
 {
-
+    public function __construct()
+    {
+        $this->middleware(['auth']);
+    }
     public function index()
     {
         return view('tele.index');
@@ -15,62 +20,63 @@ class TeleconsultationController extends Controller
 
     public function create()
     {
+
         return view('tele.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
-        //
+        $this->validates($request);
+         Auth::user()->teleConsult()->create(
+            $request->all()
+        );
+         return back()->with('success','Teleconsult added successfully');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+
+    public function show(Teleconsult $teleconsult)
     {
-        //
+        return view('tele.view',compact('teleconsult'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+
+    public function edit(Teleconsult $teleconsult)
     {
-        //
+        return view('tele.edit',compact('teleconsult'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+
+    public function update(Request $request, Teleconsult $teleconsult)
     {
-        //
+        $teleconsult->fill($request->all())->save();
+        return back()->with('success','Teleconsult updated successfully');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+
+    public function destroy(Teleconsult $teleconsult)
     {
-        //
+        $teleconsult->delete();
+        return back()->with('success','Teleconsult removed successfully');
+    }
+
+    public function validates($request){
+        $request->validate([
+             "encounter_date"=>"required",
+             "district"=>"required",
+            "facility"=>"required",
+            "patient_first_name"=>"required",
+             "age"=>"required" ,
+             "sex"=>"required",
+             "complaint"=>"required",
+             "name_of_caller" =>"required",
+             "contact_of_caller"=>"required",
+//             "tcc_staff"
+            "diagnosis" =>"required",
+
+//            "prior_referred_to_hospital"=>'required',
+
+
+        ]);
     }
 }

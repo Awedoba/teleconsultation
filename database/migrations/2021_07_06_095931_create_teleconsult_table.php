@@ -13,7 +13,7 @@ class CreateTeleconsultTable extends Migration
      */
     public function up()
     {
-        Schema::create('teleconsult', function (Blueprint $table) {
+        Schema::create('teleconsults', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
             $table->date('encounter_date');

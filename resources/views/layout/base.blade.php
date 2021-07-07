@@ -8,7 +8,7 @@
         @isset($title)
         {{ $title }} |
         @endisset
-        {{ config('app.name') }}
+        TeleConsult
     </title>
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -17,6 +17,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body class="bg-light">
+        @include('layout.nav')
         <div id="root" class="container pt-lg-5 mt-lg-5">
             @yield('content')
         </div>

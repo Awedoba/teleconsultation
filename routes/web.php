@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\TeleconsultationController;
 use Illuminate\Support\Facades\Route;
 
@@ -13,8 +15,8 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/1', function () {
-    return view('tele.view');
-});
+Route::get('/login',[LoginController::class,'index'])->name('login');
+Route::post('/login',[LoginController::class,'view'])->name('login');
+Route::post('/logout',[LogoutController::class,'logout'])->name('logout');
 
 Route::resource('/',TeleconsultationController::class);
