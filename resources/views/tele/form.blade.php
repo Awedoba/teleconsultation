@@ -215,7 +215,7 @@
         </div>
     </div>
     <div class="col-12 pt-4">
-        <h3>Complaint, observation and Diagnosis</h3>
+        <h3>Complaint, Observation and Diagnosis</h3>
         <div class="row">
             <div class="col-md-6 col-sm-12">
                 <label for="complaint  ">Complaint</label>
@@ -238,7 +238,7 @@
         </div>
         <div class="row">
             <div class="col-md-6 col-sm-12">
-                <label for="tg_condition ">Telemedicine group/ condition</label>
+                <label for="tg_condition ">Telemedicine group / Condition</label>
                 <input type="text" min="1" class="form-control" id="tg_condition " name="tg_condition " placeholder="" value="{{ isset($teleconsult->tg_condition )? $teleconsult->tg_condition  : old('tg_condition ') }}" >
                 @error('name')
                 <div class="invalid-feedback">
@@ -269,7 +269,7 @@
         </div>
     </div>
     <div class="col-12 pt-4">
-        <h3>Medication/lab done prior to teleconsulation</h3>
+        <h3>Medication/Lab done prior to teleconsulation</h3>
         <div class="row">
             <div class="col-md-8">
                 <div class="row">
@@ -402,7 +402,7 @@
                     <div class="form-check col-md-12 col-sm-12 text-center pt-4">
                         <input class="form-check-input" type="checkbox" value="{{ isset($teleconsult->referred_to_hospital)? $teleconsult->referred_to_hospital : old('referred_to_hospital') }}" id="referred_to_hospital" name="referred_to_hospital">
                         <label class="form-check-label" for="referred_to_hospital">
-                            Patient Referred to hospital?
+                            Is Patient Referred To Hospital?
                         </label>
                         @error('referral_priority')
                         <div class="invalid-feedback">
