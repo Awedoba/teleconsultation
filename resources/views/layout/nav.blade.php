@@ -16,6 +16,7 @@
             </a>
             <div class="dropdown-menu">
                 <a class="dropdown-item" href="{{route('password.change')}}">Change Password</a>
+                <a class="dropdown-item" href="{{route('register')}}">Register User</a>
                 <form action="{{ route('logout')}}" method="post" class="dropdown-item">
                     @csrf
                     <button type="submit" style="background: none;
