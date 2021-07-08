@@ -16,9 +16,9 @@ class CreateDuringTeleconsultsTable extends Migration
         Schema::create('during_teleconsults', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->foreignId('teleconsult_id');
-            $table->string('medications');
-            $table->integer('quantity');
+            $table->foreignId('teleconsult_id')->nullable();
+            $table->string('medication')->nullable();
+            $table->integer('quantity')->nullable()->default(0);
         });
     }
 

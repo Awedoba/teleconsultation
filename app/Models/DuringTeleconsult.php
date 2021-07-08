@@ -9,8 +9,8 @@ class DuringTeleconsult extends Model
 {
     use HasFactory;
 
-    protected $fillables = [
-        'medications',
+    protected $fillable  = [
+        'medication',
         'quantity'
     ];
     public function teleconsult(){

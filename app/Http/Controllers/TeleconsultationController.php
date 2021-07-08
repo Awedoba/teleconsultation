@@ -29,9 +29,34 @@ class TeleconsultationController extends Controller
     public function store(Request $request)
     {
         $this->validates($request);
-         Auth::user()->teleConsult()->create(
+         $teleconsult = Auth::user()->teleConsult()->create(
             $request->all()
         );
+
+        $medication = $request->medication;
+        $quantity = $request->quantity;
+//        add medications
+        for ($x = 0; $x < sizeof($request->medication); $x++){
+            $during = array('medication'=>$medication[$x],'quantity'=>$quantity[$x]);
+//            dd($medicate);
+            $teleconsult->duringTeleconsult()->create(
+                $during
+            );
+        }
+
+        $prior_medication = $request->prior_medication;
+        $dosage = $request->dosage;
+        $med_form = $request->med_form;
+        $amount_dispensed = $request->amount_dispensed;
+//        add medications
+        for ($x = 0; $x < sizeof($request->medication); $x++){
+            $prior = array('medication'=>$prior_medication[$x],'dosage'=>$dosage[$x],'med_form'=>$med_form[$x],'amount_dispensed'=>$amount_dispensed[$x]);
+//            dd($medicate);
+            $teleconsult->proirTeleconsult()->create(
+                $prior
+            );
+        }
+
          return back()->with('success','Teleconsult added successfully');
     }
 
@@ -52,7 +77,16 @@ class TeleconsultationController extends Controller
 
     public function update(Request $request, Teleconsult $teleconsult)
     {
-        $teleconsult->fill($request->all())->save();
+//        dd($request->has('cc_physician'));
+
+        $teleconsult->fill($request->all());
+        $teleconsult->cc_physician = $request->has('cc_physician');
+        $teleconsult->prior_referred_to_hospital = $request->has('prior_referred_to_hospital');
+        $teleconsult->referral_priority = $request->has('referral_priority');
+        $teleconsult->ambulance = $request->has('ambulance');
+        $teleconsult->referred_to_hospital = $request->has('referred_to_hospital');
+//        dd($teleconsult->cc_physician );
+        $teleconsult->save();
         return back()->with('success','Teleconsult updated successfully');
     }
 

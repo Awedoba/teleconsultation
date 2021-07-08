@@ -247,7 +247,7 @@
                 @enderror
             </div>
             <div class="form-check col-md-3 col-sm-12 text-center pt-4">
-                <input class="form-check-input" type="checkbox" value="1" {{ isset($teleconsult->cc_physician )? 'checked'  : null }} id="cc_physician" name="cc_physician">
+                <input class="form-check-input" type="checkbox" value="1" @if(isset($teleconsult )){{ ($teleconsult->cc_physician === 1) ? 'checked'  : null }}@endif id="cc_physician" name="cc_physician">
                 <label class="form-check-label" for="cc_physician">
                     call conf. to physician
                 </label>
@@ -275,9 +275,10 @@
                 <div class="row">
                     <div class="col-md-3 col-sm-12">
                         <label for="medication">Medication/Supplies</label>
-                        <input type="text"  class="form-control mt-2 mb-2" id="medication" name="medication[]" placeholder="" value="" >
-                        <input type="text"  class="form-control mt-2 mb-2" id="medication" name="medication[]" placeholder="" value="" >
-                        <input type="text"  class="form-control mt-2 mb-2" id="medication" name="medication[]" placeholder="" value="" >
+
+                        <input type="text"  class="form-control mt-2 mb-2" id="medication" name="prior_medication[]" placeholder="" value="" >
+                        <input type="text"  class="form-control mt-2 mb-2" id="medication" name="prior_medication[]" placeholder="" value="" >
+                        <input type="text"  class="form-control mt-2 mb-2" id="medication" name="prior_medication[]" placeholder="" value="" >
                         @error('name')
                         <div class="invalid-feedback">
                             {{ $message }}
@@ -287,8 +288,8 @@
                     <div class="col-md-3 col-sm-12">
                         <label for="dosage">Dosage</label>
                         <input type="text"  class="form-control mt-2 mb-2" id="dosage" name="dosage[]" placeholder="" value="" >
-                        <input type="text"  class="form-control mt-2 mb-2" id="firstName" name="dosage[]" placeholder="" value="" >
-                        <input type="text"  class="form-control mt-2 mb-2" id="firstName" name="dosage[]" placeholder="" value="" >
+                        <input type="text"  class="form-control mt-2 mb-2" id="dosage" name="dosage[]" placeholder="" value="" >
+                        <input type="text"  class="form-control mt-2 mb-2" id="dosage" name="dosage[]" placeholder="" value="" >
                         @error('name')
                         <div class="invalid-feedback">
                             {{ $message }}
@@ -297,9 +298,9 @@
                     </div>
                     <div class="col-md-3 col-sm-12">
                         <label for="med_form">Medication Form</label>
-                        <input type="text"  class="form-control mt-2 mb-2" id="med_form" name="med_form[]" placeholder="" value="" >
-                        <input type="text"  class="form-control mt-2 mb-2" id="med_form" name="med_form[]" placeholder="" value="" >
-                        <input type="text"  class="form-control mt-2 mb-2" id="med_form" name="med_form[]" placeholder="" value="" >
+                        <input type="text"  class="form-control mt-2 mb-2" id="med_form" name="medication_form[]" placeholder="" value="" >
+                        <input type="text"  class="form-control mt-2 mb-2" id="med_form" name="medication_form[]" placeholder="" value="" >
+                        <input type="text"  class="form-control mt-2 mb-2" id="med_form" name="medication_form[]" placeholder="" value="" >
                         @error('name')
                         <div class="invalid-feedback">
                             {{ $message }}
@@ -321,7 +322,7 @@
             </div>
             <div class="col-md-4">
                 <div class="form-check col-md-12 col-sm-12 text-center pt-4">
-                    <input class="form-check-input" type="checkbox" value="1"{{ isset($teleconsult->prior_referred_to_hospital )? 'checked'  : null  }} id="prior_referred_to_hospital" name="prior_referred_to_hospital">
+                    <input class="form-check-input" type="checkbox" value="1" @if(isset($teleconsult )){{ ($teleconsult->prior_referred_to_hospital===1) ? 'checked'  : null  }}@endif id="prior_referred_to_hospital" name="prior_referred_to_hospital">
                     <label class="form-check-label" for="prior_referred_to_hospital">
                         Patient Referred to hospital?
                     </label>
@@ -332,7 +333,7 @@
                     @enderror
                 </div>
                 <div class="form-check col-md-12 col-sm-12 text-center pt-4">
-                    <input class="form-check-input" type="checkbox" value="1" {{ isset($teleconsult->referral_priority)? 'checked' : null}} id="referral_priority" name="referral_priority">
+                    <input class="form-check-input" type="checkbox" value="0" @if(isset($teleconsult )){{ ($teleconsult->referral_priority === 1) ? 'checked' : null}}@endif id="referral_priority" name="referral_priority">
                     <label class="form-check-label" for="referral_priority">
                         Referral priority: Emergency
                     </label>
@@ -345,7 +346,7 @@
                 <div class="row">
                     <h5 class="pt-2 pb-2">Emergency Transportation</h5>
                     <div class="form-check col-md-12 col-sm-12 ml-3">
-                        <input class="form-check-input" type="checkbox" value="1" {{ isset($teleconsult->ambulance )? 'checked'  : null }} id="ambulance" name="ambulance">
+                        <input class="form-check-input" type="checkbox" value="1" @if(isset($teleconsult )){{ ($teleconsult->ambulance === 1) ? 'checked'  : null }}@endif id="ambulance" name="ambulance">
                         <label class="form-check-label" for="ambulance">
                             Ambulance
                         </label>
@@ -375,9 +376,9 @@
                 <div class="row">
                     <div class="col-md-6 col-sm-12">
                         <label for="medication">Medication/Supplies</label>
-                        <input type="text"  class="form-control mt-2 mb-2" id="medication" name="medication[]" placeholder="" value="" >
-                        <input type="text"  class="form-control mt-2 mb-2" id="medication" name="medication[]" placeholder="" value="" >
-                        <input type="text"  class="form-control mt-2 mb-2" id="medication" name="medication[]" placeholder="" value="" >
+{{--                        <input type="text"  class="form-control mt-2 mb-2" id="medication" name="medication[]" placeholder="" value="{{isset($teleconsult->duringTeleconsult->medication[0]) ? $teleconsult->duringTeleconsult->medication[0]  : old('medication')  }}" >--}}
+{{--                        <input type="text"  class="form-control mt-2 mb-2" id="medication" name="medication[]" placeholder="" value="{{isset($teleconsult->duringTeleconsult->medication[1]) ? $teleconsult->duringTeleconsult->medication[1]  : old('medication')  }}" >--}}
+{{--                        <input type="text"  class="form-control mt-2 mb-2" id="medication" name="medication[]" placeholder="" value="{{isset($teleconsult->duringTeleconsult->medication[2]) ? $teleconsult->duringTeleconsult->medication[2]  : old('medication')  }}" >--}}
                         @error('name')
                         <div class="invalid-feedback">
                             {{ $message }}
@@ -386,9 +387,9 @@
                     </div>
                     <div class="col-md-6 col-sm-12">
                         <label for="quantity">Quantity</label>
-                        <input type="text"  class="form-control mt-2 mb-2" id="quantity" name="quantity[]" placeholder="" value="" >
-                        <input type="text"  class="form-control mt-2 mb-2" id="quantity" name="quantity[]" placeholder="" value="" >
-                        <input type="text"  class="form-control mt-2 mb-2" id="quantity" name="quantity[]" placeholder="" value="" >
+                        <input type="number"  class="form-control mt-2 mb-2" id="quantity" name="quantity[]" placeholder="" value="" >
+                        <input type="number"  class="form-control mt-2 mb-2" id="quantity" name="quantity[]" placeholder="" value="" >
+                        <input type="number"  class="form-control mt-2 mb-2" id="quantity" name="quantity[]" placeholder="" value="" >
                         @error('name')
                         <div class="invalid-feedback">
                             {{ $message }}
@@ -400,7 +401,7 @@
             <div class="col-md-8 col-sm-12">
                 <div class="row">
                     <div class="form-check col-md-12 col-sm-12 text-center pt-4">
-                        <input class="form-check-input" type="checkbox" {{ isset($teleconsult->referred_to_hospital)? 'checked' : null }}  id="referred_to_hospital" name="referred_to_hospital" value="1">
+                        <input class="form-check-input" type="checkbox" @if(isset($teleconsult )){{ ($teleconsult->referred_to_hospital === 1) ? 'checked' : null }}@endif  id="referred_to_hospital" name="referred_to_hospital" value="1">
                         <label class="form-check-label" for="referred_to_hospital">
                             Is Patient Referred To Hospital?
                         </label>
