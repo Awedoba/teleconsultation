@@ -10,7 +10,7 @@
                 <div class="col-8">
                     <div class="col m-4">
                         <label for="old_password">Old Password</label>
-                        <input type="text" class="form-control" id="old_password" name="old_password" placeholder="Old Password" >
+                        <input type="text" class="form-control" id="old_password" name="old_password" placeholder="Old Password" required>
                         @error('old_password')
                         <div class="invalid-feedback">
                             {{ $message }}
@@ -19,7 +19,7 @@
                     </div>
                     <div class="col m-4">
                         <label for="password">New Password</label>
-                        <input type="password" class="form-control" id="password" name="password" placeholder="New Password" >
+                        <input type="password" class="form-control" id="password" name="password" placeholder="New Password" required>
                         @error('password')
                         <div class="invalid-feedback">
                             {{ $message }}
@@ -28,7 +28,7 @@
                     </div>
                     <div class="col m-4">
                         <label for="password">Confirm Password</label>
-                        <input type="password" class="form-control" id="password" id="password_confirmation" name="password_confirmation" placeholder="Repeat Password" >
+                        <input type="password" class="form-control" id="password" id="password_confirmation" name="password_confirmation" placeholder="Repeat Password" required>
                         @error('password')
                         <div class="invalid-feedback">
                             {{ $message }}

@@ -27,7 +27,7 @@ class PasswordController extends Controller
         if(Hash::check($request->old_password,auth()->user()->password )){
             auth()->user()->fill(['password'=>Hash::make($password)])->save();
         }
-        return back();
+        return back()->with('Success', 'Password changed successfully!');
     }
 
     public function reset(User $user)

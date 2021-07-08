@@ -34,6 +34,6 @@ class RegisterController extends Controller
 
         //$user->assignRole($request->roles);
 //        auth()->attempt($request->only('user_name','password'));
-        return back()->with('success','User added successfully');
+        return back()->with('Success','User added successfully!');
     }
 }
