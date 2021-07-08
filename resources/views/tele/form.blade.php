@@ -276,9 +276,9 @@
                     <div class="col-md-3 col-sm-12">
                         <label for="medication">Medication/Supplies</label>
 
-                        <input type="text"  class="form-control mt-2 mb-2" id="medication" name="prior_medication[]" placeholder="" value="" >
-                        <input type="text"  class="form-control mt-2 mb-2" id="medication" name="prior_medication[]" placeholder="" value="" >
-                        <input type="text"  class="form-control mt-2 mb-2" id="medication" name="prior_medication[]" placeholder="" value="" >
+                        <input type="text"  class="form-control mt-2 mb-2" id="medication" name="prior_medication[]" placeholder="" value="{{isset($teleconsult->priorTeleconsult) ? $teleconsult->priorTeleconsult[0]['medication']  : old('prior_medication')  }}" >
+                        <input type="text"  class="form-control mt-2 mb-2" id="medication" name="prior_medication[]" placeholder="" value="{{isset($teleconsult->priorTeleconsult) ? $teleconsult->priorTeleconsult[1]['medication']  : old('prior_medication')  }}" >
+                        <input type="text"  class="form-control mt-2 mb-2" id="medication" name="prior_medication[]" placeholder="" value="{{isset($teleconsult->priorTeleconsult) ? $teleconsult->priorTeleconsult[2]['medication']  : old('prior_medication')  }}" >
                         @error('name')
                         <div class="invalid-feedback">
                             {{ $message }}
@@ -287,9 +287,9 @@
                     </div>
                     <div class="col-md-3 col-sm-12">
                         <label for="dosage">Dosage</label>
-                        <input type="text"  class="form-control mt-2 mb-2" id="dosage" name="dosage[]" placeholder="" value="" >
-                        <input type="text"  class="form-control mt-2 mb-2" id="dosage" name="dosage[]" placeholder="" value="" >
-                        <input type="text"  class="form-control mt-2 mb-2" id="dosage" name="dosage[]" placeholder="" value="" >
+                        <input type="text"  class="form-control mt-2 mb-2" id="dosage" name="dosage[]" placeholder="" value="{{isset($teleconsult->priorTeleconsult) ? $teleconsult->priorTeleconsult[0]['dosage']  : old('dosage')  }}" >
+                        <input type="text"  class="form-control mt-2 mb-2" id="dosage" name="dosage[]" placeholder="" value="{{isset($teleconsult->priorTeleconsult) ? $teleconsult->priorTeleconsult[1]['dosage']  : old('dosage')  }}" >
+                        <input type="text"  class="form-control mt-2 mb-2" id="dosage" name="dosage[]" placeholder="" value="{{isset($teleconsult->priorTeleconsult) ? $teleconsult->priorTeleconsult[2]['dosage']  : old('dosage')  }}" >
                         @error('name')
                         <div class="invalid-feedback">
                             {{ $message }}
@@ -298,9 +298,9 @@
                     </div>
                     <div class="col-md-3 col-sm-12">
                         <label for="med_form">Medication Form</label>
-                        <input type="text"  class="form-control mt-2 mb-2" id="med_form" name="medication_form[]" placeholder="" value="" >
-                        <input type="text"  class="form-control mt-2 mb-2" id="med_form" name="medication_form[]" placeholder="" value="" >
-                        <input type="text"  class="form-control mt-2 mb-2" id="med_form" name="medication_form[]" placeholder="" value="" >
+                        <input type="text"  class="form-control mt-2 mb-2" id="med_form" name="medication_form[]" placeholder="" value="{{isset($teleconsult->priorTeleconsult) ? $teleconsult->priorTeleconsult[0]['medication_form']  : old('medication_form')  }}" >
+                        <input type="text"  class="form-control mt-2 mb-2" id="med_form" name="medication_form[]" placeholder="" value="{{isset($teleconsult->priorTeleconsult) ? $teleconsult->priorTeleconsult[1]['medication_form']  : old('medication_form')  }}" >
+                        <input type="text"  class="form-control mt-2 mb-2" id="med_form" name="medication_form[]" placeholder="" value="{{isset($teleconsult->priorTeleconsult) ? $teleconsult->priorTeleconsult[2]['medication_form']  : old('medication_form')  }}" >
                         @error('name')
                         <div class="invalid-feedback">
                             {{ $message }}
@@ -309,9 +309,9 @@
                     </div>
                     <div class="col-md-3 col-sm-12">
                         <label for="amount_dispensed">Amount Dispensed</label>
-                        <input type="text" class="form-control mt-2 mb-2" id="amount_dispensed" name="amount_dispensed[]" placeholder="" value="" >
-                        <input type="text" class="form-control mt-2 mb-2" id="amount_dispensed" name="amount_dispensed[]" placeholder="" value="" >
-                        <input type="text" class="form-control mt-2 mb-2" id="amount_dispensed" name="amount_dispensed[]" placeholder="" value="" >
+                        <input type="text" class="form-control mt-2 mb-2" id="amount_dispensed" name="amount_dispensed[]" placeholder="" value="{{isset($teleconsult->priorTeleconsult) ? $teleconsult->priorTeleconsult[0]['amount_dispensed']  : old('amount_dispensed')  }}" >
+                        <input type="text" class="form-control mt-2 mb-2" id="amount_dispensed" name="amount_dispensed[]" placeholder="" value="{{isset($teleconsult->priorTeleconsult) ? $teleconsult->priorTeleconsult[1]['amount_dispensed']  : old('amount_dispensed')  }}" >
+                        <input type="text" class="form-control mt-2 mb-2" id="amount_dispensed" name="amount_dispensed[]" placeholder="" value="{{isset($teleconsult->priorTeleconsult) ? $teleconsult->priorTeleconsult[2]['amount_dispensed']  : old('amount_dispensed')  }}" >
                         @error('name')
                         <div class="invalid-feedback">
                             {{ $message }}
@@ -376,9 +376,9 @@
                 <div class="row">
                     <div class="col-md-6 col-sm-12">
                         <label for="medication">Medication/Supplies</label>
-{{--                        <input type="text"  class="form-control mt-2 mb-2" id="medication" name="medication[]" placeholder="" value="{{isset($teleconsult->duringTeleconsult->medication[0]) ? $teleconsult->duringTeleconsult->medication[0]  : old('medication')  }}" >--}}
-{{--                        <input type="text"  class="form-control mt-2 mb-2" id="medication" name="medication[]" placeholder="" value="{{isset($teleconsult->duringTeleconsult->medication[1]) ? $teleconsult->duringTeleconsult->medication[1]  : old('medication')  }}" >--}}
-{{--                        <input type="text"  class="form-control mt-2 mb-2" id="medication" name="medication[]" placeholder="" value="{{isset($teleconsult->duringTeleconsult->medication[2]) ? $teleconsult->duringTeleconsult->medication[2]  : old('medication')  }}" >--}}
+                        <input type="text"  class="form-control mt-2 mb-2" id="medication" name="medication[]" placeholder="" value="{{isset($teleconsult->duringTeleconsult) ? $teleconsult->duringTeleconsult[0]['medication']  : old('medication')  }}" >
+                        <input type="text"  class="form-control mt-2 mb-2" id="medication" name="medication[]" placeholder="" value="{{isset($teleconsult->duringTeleconsult) ? $teleconsult->duringTeleconsult[1]['medication']  : old('medication')  }}" >
+                        <input type="text"  class="form-control mt-2 mb-2" id="medication" name="medication[]" placeholder="" value="{{isset($teleconsult->duringTeleconsult) ? $teleconsult->duringTeleconsult[2]['medication']  : old('medication')  }}" >
                         @error('name')
                         <div class="invalid-feedback">
                             {{ $message }}
@@ -387,9 +387,9 @@
                     </div>
                     <div class="col-md-6 col-sm-12">
                         <label for="quantity">Quantity</label>
-                        <input type="number"  class="form-control mt-2 mb-2" id="quantity" name="quantity[]" placeholder="" value="" >
-                        <input type="number"  class="form-control mt-2 mb-2" id="quantity" name="quantity[]" placeholder="" value="" >
-                        <input type="number"  class="form-control mt-2 mb-2" id="quantity" name="quantity[]" placeholder="" value="" >
+                        <input type="number"  class="form-control mt-2 mb-2" id="quantity" name="quantity[]" placeholder="" value="{{isset($teleconsult->duringTeleconsult) ? $teleconsult->duringTeleconsult[0]['quantity']  : old('quantity')  }}" >
+                        <input type="number"  class="form-control mt-2 mb-2" id="quantity" name="quantity[]" placeholder="" value="{{isset($teleconsult->duringTeleconsult) ? $teleconsult->duringTeleconsult[0]['quantity']  : old('quantity')  }}" >
+                        <input type="number"  class="form-control mt-2 mb-2" id="quantity" name="quantity[]" placeholder="" value="{{isset($teleconsult->duringTeleconsult) ? $teleconsult->duringTeleconsult[0]['quantity']  : old('quantity')  }}" >
                         @error('name')
                         <div class="invalid-feedback">
                             {{ $message }}

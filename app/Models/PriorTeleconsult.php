@@ -11,7 +11,7 @@ class PriorTeleconsult extends Model
     protected $fillable = [
         'medication',
         'dosage',
-        'medication',
+        'medication_form',
         'amount_dispensed'
     ];
     public function teleconsult(){

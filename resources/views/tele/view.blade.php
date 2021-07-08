@@ -142,28 +142,29 @@
                       <div class="col-md-8">
                           <div class="row">
                               <div class="col-md-3 col-sm-12">
-                                  <h5 for="medication">Medication / Supplies</h5>
-                                  <p>adadadadadadad</p>
-                                  <p>adadadadadadad</p>
-                                  <p>adadadadadadad</p>
+                                  <h5 >Medication / Supplies</h5>
+                                  @foreach($teleconsult->proirTeleconsult as $prior)
+                                      <p>{{$prior->medication}}</p>
+                                  @endforeach
+
                                </div>
                               <div class="col-md-3 col-sm-12">
                                   <h5 >Dosage</h5> <br>
-                                  <p>adadadadadadad</p>
-                                  <p>adadadadadadad</p>
-                                  <p>adadadadadadad</p>
+                                  @foreach($teleconsult->proirTeleconsult as $prior)
+                                      <p>{{$prior->dosage}}</p>
+                                  @endforeach
                              </div>
                               <div class="col-md-3 col-sm-12">
-                                  <h5 for="med_form">Medication Form</h5>
-                                  <p>adadadadadadad</p>
-                                  <p>adadadadadadad</p>
-                                  <p>adadadadadadad</p>
+                                  <h5 >Medication Form</h5>
+                                  @foreach($teleconsult->proirTeleconsult as $prior)
+                                      <p>{{$prior->medication_form}}</p>
+                                  @endforeach
                                 </div>
                               <div class="col-md-3 col-sm-12">
-                                  <h5 for="amount_dispensed">Amount Dispensed</h5>
-                                  <p>adadadadadadad</p>
-                                  <p>adadadadadadad</p>
-                                  <p>adadadadadadad</p>
+                                  <h5 >Amount Dispensed</h5>
+                                  @foreach($teleconsult->proirTeleconsult as $prior)
+                                      <p>{{$prior->amount_dispensed}}</p>
+                                  @endforeach
                               </div>
                           </div>
                       </div>
@@ -200,15 +201,15 @@
                           <div class="row">
                               <div class="col-md-6 col-sm-12">
                                   <h5 class="text-wrap" >Medication / Supplies</h5>
-                                  <p>adadadadadadad</p>
-                                  <p>adadadadadadad</p>
-                                  <p>adadadadadadad</p>
+                                  @foreach($teleconsult->duringTeleconsult as $during)
+                                      <p>{{$during->medication}}</p>
+                                  @endforeach
                             </div>
                               <div class="col-md-6 col-sm-12">
                                   <h5 >Quantity</h5> <br>
-                                  <p>adadadadadadad</p>
-                                  <p>adadadadadadad</p>
-                                  <p>adadadadadadad</p>
+                                  @foreach($teleconsult->duringTeleconsult as $during)
+                                      <p>{{$during->quantity}}</p>
+                                  @endforeach
                              </div>
                           </div>
                       </div>

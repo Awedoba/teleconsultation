@@ -63,8 +63,9 @@ class TeleconsultationController extends Controller
 
     public function show(Teleconsult $teleconsult)
     {
-//        dd("show");
+//        dd($teleconsult->duringTeleconsult[0]['medication']);
         return view('tele.view',compact('teleconsult'));
+
     }
 
 

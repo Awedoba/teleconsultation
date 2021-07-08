@@ -48,7 +48,7 @@ class Teleconsult extends Model
     public function user(){
         return $this->belongsTo(User::class);
     }
-    public function proirTeleconsult(){
+    public function priorTeleconsult(){
         return $this->hasMany(PriorTeleconsult::class);
     }
     public function duringTeleconsult(){
