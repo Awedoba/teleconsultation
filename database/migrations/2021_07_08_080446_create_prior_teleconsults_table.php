@@ -17,10 +17,10 @@ class CreatePriorTeleconsultsTable extends Migration
             $table->id();
             $table->timestamps();
             $table->foreignId('teleconsult_id');
-            $table->string('medication');
-            $table->string('dosages');
-            $table->string('medication_form');
-            $table->string('amount_dispensed');
+            $table->string('medication')->nullable();
+            $table->string('dosage')->nullable();
+            $table->string('medication_form')->nullable();
+            $table->string('amount_dispensed')->nullable()->default('0');
         });
     }
 

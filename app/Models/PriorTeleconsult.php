@@ -10,7 +10,7 @@ class PriorTeleconsult extends Model
     use HasFactory;
     protected $fillable = [
         'medication',
-        'dosages',
+        'dosage',
         'medication',
         'amount_dispensed'
     ];
