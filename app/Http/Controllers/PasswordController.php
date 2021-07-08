@@ -15,7 +15,7 @@ class PasswordController extends Controller
     }
     public function edit()
     {
-        return view('password.change');
+        return view('auth.change');
     }
     public function store(Request $request)
     {
