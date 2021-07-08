@@ -1,7 +1,7 @@
 
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top justify-content-lg-around ">
     <!-- Brand -->
-    <a class="navbar-brand" href="{{route('index')}}">Teleconsult</a>
+    <a class="navbar-brand" href="{{route('teleconsult.index')}}">Teleconsult</a>
 {{--    links--}}
     <ul class="navbar-nav">
         @guest

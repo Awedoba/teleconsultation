@@ -247,7 +247,7 @@
                 @enderror
             </div>
             <div class="form-check col-md-3 col-sm-12 text-center pt-4">
-                <input class="form-check-input" type="checkbox" value="{{ isset($teleconsult->cc_physician )? $teleconsult->cc_physician  : old('cc_physician ') }}" id="cc_physician" name="cc_physician">
+                <input class="form-check-input" type="checkbox" value="1" {{ isset($teleconsult->cc_physician )? 'checked'  : null }} id="cc_physician" name="cc_physician">
                 <label class="form-check-label" for="cc_physician">
                     call conf. to physician
                 </label>
@@ -321,7 +321,7 @@
             </div>
             <div class="col-md-4">
                 <div class="form-check col-md-12 col-sm-12 text-center pt-4">
-                    <input class="form-check-input" type="checkbox" value="{{ isset($teleconsult->prior_referred_to_hospital )? $teleconsult->prior_referred_to_hospital  : old('prior_referred_to_hospital ') }}" id="prior_referred_to_hospital" name="prior_referred_to_hospital">
+                    <input class="form-check-input" type="checkbox" value="1"{{ isset($teleconsult->prior_referred_to_hospital )? 'checked'  : null  }} id="prior_referred_to_hospital" name="prior_referred_to_hospital">
                     <label class="form-check-label" for="prior_referred_to_hospital">
                         Patient Referred to hospital?
                     </label>
@@ -332,7 +332,7 @@
                     @enderror
                 </div>
                 <div class="form-check col-md-12 col-sm-12 text-center pt-4">
-                    <input class="form-check-input" type="checkbox" value="{{ isset($teleconsult->referral_priority)? $teleconsult->referral_priority : old('referral_priority') }}" id="referral_priority" name="referral_priority">
+                    <input class="form-check-input" type="checkbox" value="1" {{ isset($teleconsult->referral_priority)? 'checked' : null}} id="referral_priority" name="referral_priority">
                     <label class="form-check-label" for="referral_priority">
                         Referral priority: Emergency
                     </label>
@@ -345,7 +345,7 @@
                 <div class="row">
                     <h5 class="pt-2 pb-2">Emergency Transportation</h5>
                     <div class="form-check col-md-12 col-sm-12 ml-3">
-                        <input class="form-check-input" type="checkbox" value="{{ isset($teleconsult->ambulance )? $teleconsult->ambulance  : old('ambulance ') }}" id="ambulance">
+                        <input class="form-check-input" type="checkbox" value="1" {{ isset($teleconsult->ambulance )? 'checked'  : null }} id="ambulance" name="ambulance">
                         <label class="form-check-label" for="ambulance">
                             Ambulance
                         </label>
@@ -400,7 +400,7 @@
             <div class="col-md-8 col-sm-12">
                 <div class="row">
                     <div class="form-check col-md-12 col-sm-12 text-center pt-4">
-                        <input class="form-check-input" type="checkbox" value="{{ isset($teleconsult->referred_to_hospital)? $teleconsult->referred_to_hospital : old('referred_to_hospital') }}" id="referred_to_hospital" name="referred_to_hospital">
+                        <input class="form-check-input" type="checkbox" {{ isset($teleconsult->referred_to_hospital)? 'checked' : null }}  id="referred_to_hospital" name="referred_to_hospital" value="1">
                         <label class="form-check-label" for="referred_to_hospital">
                             Is Patient Referred To Hospital?
                         </label>
@@ -432,7 +432,7 @@
                     </div>
                     <div class="col-md-4 col-sm-12">
                         <label for="tcc_staff">Name of TCC Staff<span class="text-danger">*</span></label>
-                        <input type="text" required min="1" class="form-control" id="tcc_staff" name="tcc_staff" placeholder="" value="{{ isset($teleconsult->tcc_staff)? $teleconsult->tcc_staff : old('tcc_staff') }}" >
+                        <input type="text" disabled required min="1" class="form-control" id="tcc_staff" name="tcc_staff" placeholder="" value="{{ auth()->user()->name}}" >
                         @error('tcc_staff')
                         <div class="invalid-feedback">
                             {{ $message }}

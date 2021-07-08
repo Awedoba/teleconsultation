@@ -8,11 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class PriorTeleconsult extends Model
 {
     use HasFactory;
-
     protected $fillable = [
         'medication',
         'dosages',
         'medication',
         'amount_dispensed'
     ];
+    public function teleconsult(){
+        return $this->belongsTo(Teleconsult::class);
+    }
 }

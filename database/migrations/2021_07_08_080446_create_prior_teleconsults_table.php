@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePriorTeleconsultTable extends Migration
+class CreatePriorTeleconsultsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class CreatePriorTeleconsultTable extends Migration
      */
     public function up()
     {
-        Schema::create('prior_teleconsult', function (Blueprint $table) {
+        Schema::create('prior_teleconsults', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->foreignId('teleconsult_id');
             $table->string('medication');
             $table->string('dosages');
             $table->string('medication_form');
@@ -30,6 +31,6 @@ class CreatePriorTeleconsultTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('prior_teleconsult');
+        Schema::dropIfExists('prior_teleconsults');
     }
 }

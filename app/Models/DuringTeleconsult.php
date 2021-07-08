@@ -13,4 +13,7 @@ class DuringTeleconsult extends Model
         'medications',
         'quantity'
     ];
+    public function teleconsult(){
+        return $this->belongsTo(Teleconsult::class);
+    }
 }

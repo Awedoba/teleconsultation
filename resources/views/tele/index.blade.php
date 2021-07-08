@@ -3,7 +3,7 @@
 
     <div class="container pb-4">
         <div class="col-6">
-            <a href="{{route('create')}}" class="btn btn-primary">Add Teleconsultation</a>
+            <a href="{{route('teleconsult.create')}}" class="btn btn-primary">Add Teleconsultation</a>
         </div>
         <div class="col-6"></div>
     </div>
@@ -17,19 +17,27 @@
                 <th scope="col">District</th>
                 <th scope="col">Patient name</th>
                 <th scope="col">Name of caller</th>
-                <th scope="col">Name of TCC Staff</th>
+                <th scope="col">Name of TCC Staff
+                <th scope="col">Actions</th>
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>10/17/2021</td>
-                <td>blah</td>
-                <td>ga-east</td>
-                <td>Mark</td>
-                <td>paul caller</td>
-                <td>Alex staff</td>
-            </tr>
+            @foreach($teleconsults as $key=>$teleconsult)
+                <tr>
+                    <th scope="row">{{$key}}</th>
+                    <td>{{$teleconsult->encounter_date }}</td>
+                    <td>{{$teleconsult->facility }}</td>
+                    <td>{{$teleconsult->district }}</td>
+                    <td>{{$teleconsult->patient_first_name }}</td>
+                    <td>{{$teleconsult->name_of_caller }}</td>
+                    <td>{{$teleconsult->user->name}}</td>
+                    <td>
+                        <a class="" href="{{route('teleconsult.show',$teleconsult)}}">View</a>
+                        <a class="text-info" href="{{route('teleconsult.edit',$teleconsult)}}">Edit</a>
+                        <a class="text-danger" href="{{route('teleconsult.edit',$teleconsult)}}">Delete</a>
+                    </td>
+                </tr>
+           @endforeach
             </tbody>
         </table>
     </div>

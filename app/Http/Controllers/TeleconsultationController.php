@@ -14,7 +14,8 @@ class TeleconsultationController extends Controller
     }
     public function index()
     {
-        return view('tele.index');
+        $teleconsults = Teleconsult::latest()->with(['user',])->paginate(20);;
+        return view('tele.index',compact('teleconsults'));
     }
 
 
@@ -37,12 +38,14 @@ class TeleconsultationController extends Controller
 
     public function show(Teleconsult $teleconsult)
     {
+//        dd("show");
         return view('tele.view',compact('teleconsult'));
     }
 
 
     public function edit(Teleconsult $teleconsult)
     {
+//        dd('edit');
         return view('tele.edit',compact('teleconsult'));
     }
 
@@ -75,7 +78,6 @@ class TeleconsultationController extends Controller
             "diagnosis" =>"required",
 
 //            "prior_referred_to_hospital"=>'required',
-
 
         ]);
     }

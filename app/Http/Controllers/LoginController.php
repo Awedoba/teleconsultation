@@ -29,6 +29,6 @@ class LoginController extends Controller
 //        if (auth()->user()->hasanyrole('admin|Super Admin') ){
 //            return redirect()->route('dashboard');
 //        }
-        return redirect()->route('index');
+        return redirect()->route('teleconsult.index');
     }
 }

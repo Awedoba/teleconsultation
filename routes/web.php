@@ -15,8 +15,14 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', function () {
+    return redirect()->route('teleconsult.index');
+});
+
+Route::resource('teleconsult',TeleconsultationController::class);
+
 Route::get('/login',[LoginController::class,'index'])->name('login');
 Route::post('/login',[LoginController::class,'view'])->name('login');
 Route::post('/logout',[LogoutController::class,'logout'])->name('logout');
 
-Route::resource('/',TeleconsultationController::class);
+
