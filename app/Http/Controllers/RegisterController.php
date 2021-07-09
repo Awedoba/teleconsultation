@@ -22,7 +22,7 @@ class RegisterController extends Controller
             'fullname'=>'required|max:255',
             'user_name'=>'required|max:255',
             'password'=>'required',
-            'roles' =>'required'
+            //'roles' =>'required'
         ]);
 
         $user = User::create([
@@ -32,8 +32,8 @@ class RegisterController extends Controller
         ]);
         //dd($user);
 
-        $user->assignRole($request->roles);
-//        auth()->attempt($request->only('user_name','password'));
+        //$user->assignRole($request->roles);
+        //auth()->attempt($request->only('user_name','password'));
         return back()->with('Success','User added successfully!');
     }
 }

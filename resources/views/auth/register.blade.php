@@ -37,12 +37,13 @@
                     </div>
                     <div class="mb-4 bg-gray-100 border-2 w-full p-4 flex justify-between">
                 <label for="roles" class="text-black-700" >Choose a role</label>
-                    <select name="roles" id="roles" class="text-blueGray-300 ">
+                    <select required name="roles" id="roles" class="text-blueGray-300 ">
+                        <option value="" selected disabled>Choose...</option>
                         <option value="User" class="text-blueGray-300">User</option>
                         <option value="Admin" class="text-blueGray-300">Admin</option>
                     </select>
                 @error('roles')
-                <p class="text-red-500 text-xs italic">{{ $message }}</p>
+                <p class="invalid-feedback">{{ $message }}</p>
                 @enderror
             </div>
                     <div class="col m-4">
