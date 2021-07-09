@@ -374,7 +374,7 @@
                         <tbody class="during">
                             @if(isset($teleconsult->duringTeleconsult))
                                 @foreach($teleconsult->duringTeleconsult as $during)
-                                    <tr class="prior_tr">
+                                    <tr class="during_tr">
                                         <td><input type="text"  class="form-control mt-2 mb-2" id="medication" name="medication[]" placeholder="" value="{{$during->medication}}" ></td>
                                         <td><input type="text"  class="form-control mt-2 mb-2" id="dosage" name="quantity[]" placeholder="" value="{{ $during->quantity}}"> </td>
                                         <td>

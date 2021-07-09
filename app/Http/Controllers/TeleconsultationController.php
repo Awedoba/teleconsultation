@@ -101,6 +101,12 @@ class TeleconsultationController extends Controller
     public function destroy(Teleconsult $teleconsult)
     {
 //        dd($teleconsult);
+        foreach ($teleconsult->duringTeleconsult as $during){
+            $during->delete();
+        }
+        foreach ($teleconsult->priorTeleconsult as $prior){
+            $prior->delete();
+        }
         $teleconsult->delete();
         return back()->with('success','Teleconsult removed successfully');
     }
