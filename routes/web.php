@@ -1,11 +1,15 @@
 <?php
 
+use App\Http\Controllers\DuringTeleconsultController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\PriorTeleconsultController;
 use App\Http\Controllers\TeleconsultationController;
 use App\Http\Controllers\PasswordController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\UserController;
+use App\Models\DuringTeleconsult;
+use App\Models\PriorTeleconsult;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,6 +28,8 @@ Route::get('/', function () {
 });
 
 Route::resource('teleconsult',TeleconsultationController::class);
+Route::get('/duringTeleconsult/{duringTeleconsult}',[DuringTeleconsultController::class,'destroy'])->name('during.delete');
+Route::get('/priorTeleconsult/{priorTeleconsult}',[PriorTeleconsultController::class,'destroy'])->name('prior.delete');
 
 Route::get('/login',[LoginController::class,'index'])->name('login');
 Route::post('/login',[LoginController::class,'view'])->name('login');

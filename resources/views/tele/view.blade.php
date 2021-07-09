@@ -152,8 +152,8 @@
                                   </tr>
                                   </thead>
                                   <tbody>
-                                  @if(isset($teleconsult->proirTeleconsult))
-                                      @foreach($teleconsult->proirTeleconsult as $prior)
+                                  @if(isset($teleconsult->priorTeleconsult))
+                                      @foreach($teleconsult->priorTeleconsult as $prior)
                                           <tr>
                                               <td>{{$prior->medication }}</td>
                                               <td>{{$prior->dosage }}</td>

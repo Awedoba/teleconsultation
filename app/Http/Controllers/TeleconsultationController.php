@@ -55,7 +55,7 @@ class TeleconsultationController extends Controller
         if ($request->prior_medication[0] != null) {
             for ($x = 0; $x < sizeof($request->prior_medication); $x++) {
 //                dd($amount_dispensed[$x]);
-                $prior = array('medication' => $prior_medication[$x], 'dosage' => $dosage[$x], 'med_form' => $med_form[$x], 'amount_dispensed' => $amount_dispensed[$x]);
+                $prior = array('medication' => $prior_medication[$x], 'dosage' => $dosage[$x], 'medication_form' => $med_form[$x], 'amount_dispensed' => $amount_dispensed[$x]);
                 //            dd($medicate);
                 $teleconsult->priorTeleconsult()->create(
                     $prior
