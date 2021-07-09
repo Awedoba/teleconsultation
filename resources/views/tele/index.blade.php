@@ -34,7 +34,12 @@
                     <td>
                         <a class="" href="{{route('teleconsult.show',$teleconsult)}}">View</a>
                         <a class="text-info" href="{{route('teleconsult.edit',$teleconsult)}}">Edit</a>
-                        <a class="text-danger" href="{{route('teleconsult.edit',$teleconsult)}}">Delete</a>
+                        <form action="{{route('teleconsult.destroy',$teleconsult)}}" method="post"
+                              onsubmit="return confirm('Are you sure you want to delete this user?');"
+                        > @csrf
+                            @method('DELETE')
+                        <button class="text-danger btn btn-link"  href="{{route('teleconsult.edit',$teleconsult)}}">Delete</button>
+                        </form>
                     </td>
                 </tr>
            @endforeach

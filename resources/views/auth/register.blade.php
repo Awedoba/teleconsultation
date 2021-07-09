@@ -1,6 +1,8 @@
 @extends('layout.base',['pagetitle'=>'Change Password'])
-@section('content')<br>
-    <br>@include('layout.alert')
+@section('content')
+    <div class="row">
+        @include('layout.alert')
+    </div>
     <body>
         <form action="{{route('register')}}" method="post" >
             @csrf
@@ -36,12 +38,13 @@
                         @enderror
                     </div>
                     <div class="mb-4 bg-gray-100 border-2 w-full p-4 flex justify-between">
-                <label for="roles" class="text-black-700" >Choose a role</label>
-                    <select name="roles" id="roles" class="text-blueGray-300 ">
-                        <option value="User" class="text-blueGray-300">User</option>
-                        <option value="Admin" class="text-blueGray-300">Admin</option>
-                    </select>
-                @error('roles')
+                        <label for="role" class="text-black-700" >Choose a role</label>
+                        <select required class="custom-select d-block w-100" id="role" name="role"  >
+                            <option value="" selected disabled>Choose...</option>
+                            <option value="user">user</option>
+                            <option value="admin">admin</option>
+                        </select>
+                @error('role')
                 <p class="text-red-500 text-xs italic">{{ $message }}</p>
                 @enderror
             </div>
@@ -54,3 +57,4 @@
 
         </form>
     </body>
+@endsection

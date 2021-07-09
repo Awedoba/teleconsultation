@@ -19,7 +19,8 @@ class UserTableSeeder extends Seeder
         $user = User::create([
             'name' => 'super admin',
             'user_name' => 'super admin',
-            'password' => Hash::make('123')
+            'password' => Hash::make('123'),
+            'role'=>'admin',
         ]);
 //        $user->assignRole('Super Admin');
     }

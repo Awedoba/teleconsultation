@@ -17,18 +17,18 @@ class RegisterController extends Controller
         return view('auth.register');
     }
     public function store(Request $request){
-        // dd('jhfhjdhjjhffjhh');
         $request->validate([
             'fullname'=>'required|max:255',
             'user_name'=>'required|max:255',
             'password'=>'required',
-            'roles' =>'required'
+            'role' =>'required'
         ]);
 
         $user = User::create([
             'name'=>$request->fullname,
             'user_name'=>$request->user_name,
             'password'=>Hash::make($request->password),
+            'role'=>$request->role,
         ]);
         //dd($user);
 
