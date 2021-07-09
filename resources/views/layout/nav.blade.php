@@ -4,14 +4,14 @@
     <a class="navbar-brand" href="{{route('teleconsult.index')}}">Teleconsult</a>
 {{--    links--}}
     <ul class="navbar-nav">
-{{--        @if(auth()->user()->role === "admin")--}}
+        @if(auth()->user()->role === "admin")
             <li class="nav-item">
                 <a class="nav-link" href="{{route('register')}}">Register User</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{route('users')}}">All User</a>
             </li>
-{{--        @endif--}}
+        @endif
         @guest
         <li class="nav-item">
             <a class="nav-link" href="{{route('login')}}">Login</a>

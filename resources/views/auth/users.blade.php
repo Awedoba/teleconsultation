@@ -25,7 +25,8 @@
                     <td>
                         <a class="" href="{{route('password.reset',$user)}}">Reset password</a>
 {{--                        <a class="text-info" href="{{route('teleconsult.edit',$user)}}">Edit</a>--}}
-                        <form action="{{ route('users.delete',$user)}}" method="post" >
+                        <form action="{{ route('users.delete',$user)}}" method="post"
+                              onsubmit="return confirm('Are you sure you want to delete this user?');">
                             @method('DELETE')
                             @csrf
                             <button class="text-danger btn btn-light" type="submit" style="background: none;

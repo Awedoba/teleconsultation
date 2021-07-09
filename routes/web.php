@@ -28,12 +28,15 @@ Route::resource('teleconsult',TeleconsultationController::class);
 Route::get('/login',[LoginController::class,'index'])->name('login');
 Route::post('/login',[LoginController::class,'view'])->name('login');
 Route::post('/logout',[LogoutController::class,'logout'])->name('logout');
+
 Route::get('/changepassword', [PasswordController::class, 'edit']);
 Route::post('/changepassword', [PasswordController::class, 'store'])->name('password.change');
+
 Route::get('/register', [RegisterController::class, 'index'])->name('register');
 Route::post('/register', [RegisterController::class, 'store'])->name('register');
 
 
 Route::get('/users',[UserController::class,'index'])->name('users');
-Route::delete('/users',[UserController::class,'destroy'])->name('users.delete');
-Route::get('/resetpassword', [PasswordController::class, 'reset'])->name('password.reset');
+Route::delete('/users/{user}',[UserController::class,'destroy'])->name('users.delete');
+
+Route::get('/resetpassword/{user}', [PasswordController::class, 'reset'])->name('password.reset');

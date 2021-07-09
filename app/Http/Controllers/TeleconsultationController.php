@@ -36,31 +36,32 @@ class TeleconsultationController extends Controller
         $medication = $request->medication;
         $quantity = $request->quantity;
 //        add medications
-//        dd($request->medication);
-//        if ($request->hasAny(['medication','quantity'])) {
-//            for ($x = 0; $x < sizeof($request->medication); $x++) {
-//                $during = array('medication' => $medication[$x], 'quantity' => $quantity[$x]);
-////            dd($medicate);
-//                $teleconsult->duringTeleconsult()->create(
-//                    $during
-//                );
-//            }
-//        }
-//        $prior_medication = $request->prior_medication;
-//        $dosage = $request->dosage;
-//        $med_form = $request->med_form;
-//        $amount_dispensed = $request->amount_dispensed;
+//        dd($request->medication[0]);
+        if ($request->medication[0] != null) {
+            for ($x = 0; $x < sizeof($request->medication); $x++) {
+                $during = array('medication' => $medication[$x], 'quantity' => $quantity[$x]);
+//            dd($medicate);
+                $teleconsult->duringTeleconsult()->create(
+                    $during
+                );
+            }
+        }
+        $prior_medication = $request->prior_medication;
+        $dosage = $request->dosage;
+        $med_form = $request->medication_form;
+        $amount_dispensed = $request->amount_dispensed;
 //        dd(count($request->prior_medication));
-////        add medications
-//        if ($request->prior_medication->isEmpty()){
-//            for ($x = 0; $x < sizeof($request->prior_medication); $x++){
-//                $prior = array('medication'=>$prior_medication[$x],'dosage'=>$dosage[$x],'med_form'=>$med_form[$x],'amount_dispensed'=>$amount_dispensed[$x]);
-//        //            dd($medicate);
-//                $teleconsult->proirTeleconsult()->create(
-//                    $prior
-//                );
-//            }
-//        }
+//        add medications
+        if ($request->prior_medication[0] != null) {
+            for ($x = 0; $x < sizeof($request->prior_medication); $x++) {
+//                dd($amount_dispensed[$x]);
+                $prior = array('medication' => $prior_medication[$x], 'dosage' => $dosage[$x], 'med_form' => $med_form[$x], 'amount_dispensed' => $amount_dispensed[$x]);
+                //            dd($medicate);
+                $teleconsult->priorTeleconsult()->create(
+                    $prior
+                );
+            }
+        }
 
          return back()->with('success','Teleconsult added successfully');
     }
