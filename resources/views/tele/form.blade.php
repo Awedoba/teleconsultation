@@ -2,7 +2,7 @@
 <div class="row">
     <h1>Teleconsultation Form</h1>
 </div>
-<div class="row">
+<div class="row mb-5">
     <div class="col-md-5 col-sm-12">
         <div class="row">
             <div class="col-md-6 col-sm-12">

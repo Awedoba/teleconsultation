@@ -32,7 +32,10 @@ class PasswordController extends Controller
 
     public function reset(User $user)
     {
-        $user->fill(['password'=>Hash::make('123')])->save();
-        return back();
+//        dd($user);
+//        $user->fill(['password'=>Hash::make('123')])->save();
+        $user->password = Hash::make('123');
+        $user->save();
+        return back()->with('Success', 'Password reset successfully!');
     }
 }

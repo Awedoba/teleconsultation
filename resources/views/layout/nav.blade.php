@@ -4,6 +4,14 @@
     <a class="navbar-brand" href="{{route('teleconsult.index')}}">Teleconsult</a>
 {{--    links--}}
     <ul class="navbar-nav">
+{{--        @if(auth()->user()->role === "admin")--}}
+            <li class="nav-item">
+                <a class="nav-link" href="{{route('register')}}">Register User</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{route('users')}}">All User</a>
+            </li>
+{{--        @endif--}}
         @guest
         <li class="nav-item">
             <a class="nav-link" href="{{route('login')}}">Login</a>
@@ -16,7 +24,7 @@
             </a>
             <div class="dropdown-menu">
                 <a class="dropdown-item" href="{{route('password.change')}}">Change Password</a>
-                <a class="dropdown-item" href="{{route('register')}}">Register User</a>
+
                 <form action="{{ route('logout')}}" method="post" class="dropdown-item">
                     @csrf
                     <button type="submit" style="background: none;

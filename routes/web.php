@@ -5,6 +5,7 @@ use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\TeleconsultationController;
 use App\Http\Controllers\PasswordController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Route::get('/', function () {
     return redirect()->route('teleconsult.index');
 });
@@ -30,3 +32,8 @@ Route::get('/changepassword', [PasswordController::class, 'edit']);
 Route::post('/changepassword', [PasswordController::class, 'store'])->name('password.change');
 Route::get('/register', [RegisterController::class, 'index'])->name('register');
 Route::post('/register', [RegisterController::class, 'store'])->name('register');
+
+
+Route::get('/users',[UserController::class,'index'])->name('users');
+Route::delete('/users',[UserController::class,'destroy'])->name('users.delete');
+Route::get('/resetpassword', [PasswordController::class, 'reset'])->name('password.reset');
