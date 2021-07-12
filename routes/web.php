@@ -48,4 +48,4 @@ Route::delete('/users/{user}',[UserController::class,'destroy'])->name('users.de
 Route::get('/resetpassword/{user}', [PasswordController::class, 'reset'])->name('password.reset');
 
 Route::get('/users/{user}/edit', [UserController::class, 'edit'])->name('user.edit');
-Route::put('/users/{user}', [UserController::class, 'update'])->name('user.update');
+Route::post('/users/{user}', [UserController::class, 'update'])->name('user.update');

@@ -12,6 +12,11 @@ class UserController extends Controller
         return view('auth.users',compact('users'));
     }
 
+    public function edit(User $user){
+
+        return view('auth.edit', compact ('user'));
+    }
+
     public function update(User $user, Request $request){
         $request->validate([
             'fullname'=>'required|max:255',

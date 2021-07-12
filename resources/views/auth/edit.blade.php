@@ -5,8 +5,10 @@
         <div class="row">
             @include('layout.alert')
         </div>
-        <form action="{{route('user.update',$user)}}" method="post" >
+        <form action="{{route('user.update',$user)}}" method="POST" >
+            {{-- @method('put') --}}
             @csrf
+            
             <div class="row">
                 <p></p>
                 <div class="col-2"></div>
