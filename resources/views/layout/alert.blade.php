@@ -24,6 +24,6 @@
 
 @if ($errors->any())
     <div class="col-12 alert alert-primary" role="alert">
-        {{ $message }}
+        There was an error
     </div>
 @endif
