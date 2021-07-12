@@ -531,17 +531,13 @@
 </script>
 <script>
     function  disableToggle(val1,val2 ) {
-        console.log('in');
         document.getElementById(val1).disabled = !document.getElementById(val1).disabled ;
         document.getElementById(val2).disabled = !document.getElementById(val2).disabled ;
-        console.log('out');
     }
     function  selectToggle(val1,val2,select ) {
         if(document.getElementById(select).value === "referral") {
-            console.log('in');
             document.getElementById(val1).disabled = true ;
             document.getElementById(val2).disabled = true ;
-            console.log('out');
         }else{
             document.getElementById(val1).disabled = false ;
             document.getElementById(val2).disabled = false ;
