@@ -186,7 +186,7 @@
                 </div>
                 <div class="col-md-2 col-sm-6">
                     <label for="blood_pressure">BP(mmHg)</label>
-                    <input type="number" min="1" class="form-control" id="blood_pressure" name="blood_pressure" placeholder="" value="{{ isset($teleconsult->blood_pressure )? $teleconsult->blood_pressure  : old('blood_pressure ') }}" >
+                    <input type="text" min="1" class="form-control" id="blood_pressure" name="blood_pressure" placeholder="" value="{{ isset($teleconsult->blood_pressure )? $teleconsult->blood_pressure  : old('blood_pressure ') }}" >
                     @error('blood_pressure ')
                     <div class="invalid-feedback">
                         {{ $message }}
@@ -257,7 +257,7 @@
                     </div>
                 @enderror
             </div>
-            <div class="col-md-3 col-sm-12">
+            <div class="col-md-3 col-sm-12 pt-3">
                 <label for="physician_name">Physician's Name</label>
                 <input type="text" min="1" class="form-control" id="physician_name" placeholder="" value="{{ isset($teleconsult->physician_name )? $teleconsult->physician_name  : old('physician_name ') }}" >
                 @error('physician_name ')
@@ -334,16 +334,33 @@
                 </div>
                 <div class="row">
                     <h5 class="pt-2 pb-2">Emergency Transportation</h5>
-                    <div class="form-check col-md-12 col-sm-12 ml-3">
-                        <input class="form-check-input" type="checkbox" value="1" @if(isset($teleconsult )){{ ($teleconsult->ambulance === 1) ? 'checked'  : null }}@endif id="ambulance" name="ambulance">
-                        <label class="form-check-label" for="ambulance">
-                            Ambulance
-                        </label>
-                        @error('ambulance ')
-                        <div class="invalid-feedback">
-                            {{ $message }}
+                    <div class="col-12">
+                        <div class="row">
+                            <div class="form-check col-md-4 col-sm-12 ml-3">
+                                <input class="form-check-input" type="checkbox" value="1" @if(isset($teleconsult )){{ ($teleconsult->ambulance === 1) ? 'checked'  : null }}@endif id="ambulance" name="ambulance">
+                                <label class="form-check-label" for="ambulance">
+                                    Ambulance
+                                </label>
+                                @error('ambulance ')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                            </div>
+                            <div class="form-check col-md-6 col-sm-12 ml-3">
+                                <label for="ambulance_status">Ambulance Status</label>
+                                <select required class="custom-select d-block w-100" id="ambulance_status" name="ambulance_status"  >
+                                    <option value="" selected disabled>Choose...</option>
+                                    <option value="successful" @if (isset($teleconsult->referral_status)) {{ $teleconsult->referral_status === 'successful'? 'selected' : null}} @endif >Successful</option>
+                                    <option value="unsuccessful" @if (isset($teleconsult->referral_status)) {{ $teleconsult->referral_status === 'unsuccessful'? 'selected' : null}} @endif >Unsuccessful</option>
+                                </select>
+                                @error('ambulance_status ')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                            </div>
                         </div>
-                        @enderror
                     </div>
                     <div class="col-md-12 col-sm-12">
                         <label for="other">Other</label>
@@ -419,7 +436,7 @@
                     </div>
                     <div class="col-md-4 col-sm-12">
                         <label for="contact_of_caller">Contact no. of caller<span class="text-danger">*</span></label>
-                        <input  type="tel" required pattern="[0-9]{10}" class="form-control" id="contact_of_caller" name="contact_of_caller" placeholder="" value="{{ isset($teleconsult->contact_of_caller )? $teleconsult->contact_of_caller  : old('') }}" >
+                        <input  type="tel" required pattern="[0-9]{10}" class="form-control" id="contact_of_caller" name="contact_of_caller" placeholder="" value="{{ isset($teleconsult->contact_of_caller )? $teleconsult->contact_of_caller  : old('contact_of_caller') }}" >
                         @error('contact_of_caller ')
                         <div class="invalid-feedback">
                             {{ $message }}
@@ -437,11 +454,63 @@
                     </div>
                 </div>
             </div>
-            <div class="col-6">
-                <button type="submit" class="btn btn-primary ml-3">Save</button>
-            </div>
         </div>
     </div>
+        <div class="col-12 pt-2 pb-4">
+            <div class="row">
+                <div class="col-md-5 col-sm-12">
+                    <label for="outcome">Outcome</label>
+                    <textarea  class="form-control" id="outcome" name="outcome" rows="3" >{{ isset($teleconsult->outcome )? $teleconsult->outcome  : old('outcome ') }}</textarea>
+                    @error('outcome ')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                    @enderror
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-12">
+                            <label for="purpose">Purpose<span class="text-danger">*</span></label>
+                            <select required class="custom-select d-block w-100" id="purpose" name="purpose"  >
+                                <option value="" selected disabled>Choose...</option>
+                                <option value="referral" @if (isset($teleconsult->purpose)) {{ $teleconsult->purpose === 'referral '? 'selected' : null}} @endif >Referral</option>
+                                <option value="consultation" @if (isset($teleconsult->purpose)) {{ $teleconsult->purpose === 'consultation'? 'selected' : null}} @endif >Consultation</option>
+                            </select>
+                            @error('purpose ')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                            @enderror
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <label for="referred_to">Facility referred to</label>
+                            <input type="text"    class="form-control" id="referred_to" name="referred_to" placeholder="" value="{{ isset($teleconsult->referred_to )? $teleconsult->referred_to  : old('referred_to') }}" >
+                            @error('tcc_staff')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                            @enderror
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <label for="referral_status">Referral Status</label>
+                            <select required class="custom-select d-block w-100" id="referral_status" name="referral_status"  >
+                                <option value="" selected disabled>Choose...</option>
+                                <option value="successful" @if (isset($teleconsult->referral_status)) {{ $teleconsult->referral_status === 'successful'? 'selected' : null}} @endif >Successful</option>
+                                <option value="unsuccessful" @if (isset($teleconsult->referral_status)) {{ $teleconsult->referral_status === 'unsuccessful'? 'selected' : null}} @endif >Unsuccessful</option>
+                            </select>
+                            @error('referral_status ')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                            @enderror
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <button type="submit" class="btn btn-primary ml-3">Save</button>
+        </div>
 </div>
 <script >
     function addInput(val,val1) {

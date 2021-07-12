@@ -1,7 +1,9 @@
 @extends('layout.base')
 @section('content')
-
     <div class="container pb-4">
+        <div class="col-12">
+            @include('layout.alert')
+        </div>
         <div class="col-6">
             <a href="{{route('teleconsult.create')}}" class="btn btn-primary">Add Teleconsultation</a>
         </div>
@@ -45,5 +47,8 @@
            @endforeach
             </tbody>
         </table>
+        <div class="row">
+            {{ $teleconsults->onEachSide(5)->links() }}
+        </div>
     </div>
 @endsection

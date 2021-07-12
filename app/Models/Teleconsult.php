@@ -43,7 +43,12 @@ class Teleconsult extends Model
         'name_of_caller',
         'contact_of_caller',
         "referral_priority",
-             "tcc_staff",
+        "tcc_staff",
+        "outcome",
+        "purpose",
+        "referred_to",
+        "referral_status",
+        "ambulance_status",
     ];
     public function user(){
         return $this->belongsTo(User::class);
