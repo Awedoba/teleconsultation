@@ -4,9 +4,9 @@
           <div class="row">
               <h1>Teleconsultation Form</h1>
           </div>
-          <div class="row">
-              <div class="col-md-5 col-sm-12">
-                  <div class="row">
+          <div class="row pt-3 pb-3">
+              <div class="col-md-5 col-sm-12 pt-3 pb-3">
+                  <div class="row pt-3 pb-3">
                       <div class="col-md-6 col-sm-12">
                           <h5>Encounter Date</h5>
                           <p>{{$teleconsult->encounter_date }}</p>
@@ -16,7 +16,7 @@
                           <p>{{$teleconsult->facility_opd_no  }}</p>
                           </div>
                   </div>
-                  <div class="row">
+                  <div class="row pt-3 pb-3">
                       <div class="col-md-6 col-sm-12">
                           <h5>Community</h5>
                           <p>{{$teleconsult->community   }}</p>
@@ -26,7 +26,7 @@
                           <p>{{$teleconsult->facility   }}</p>
                       </div>
                   </div>
-                  <div class="row">
+                  <div class="row pt-3 pb-3">
                       <div class="col-md-6 col-sm-12">
                           <h5>Patient: First name</h5>
                           <p>{{$teleconsult->patient_first_name   }}</p>
@@ -37,8 +37,8 @@
                       </div>
                   </div>
               </div>
-              <div class="col-md-7 col-sm-12">
-                  <div class="row">
+              <div class="col-md-7 col-sm-12 pt-3 pb-3">
+                  <div class="row pt-3 pb-3">
                       <div class="col-md-4 col-sm-12">
                           <h5>TCC Serial no.</h5>
                           <p>{{$teleconsult->tcc_serial_no   }}</p>
@@ -52,7 +52,7 @@
                           <p>{{$teleconsult->national_id   }}</p>
                       </div>
                   </div>
-                  <div class="row">
+                  <div class="row pt-3 pb-3">
                       <div class="col-md-4 col-sm-12">
                           <h5>Sub-district</h5>
                           <p>{{$teleconsult->sub_district   }}</p>
@@ -65,7 +65,7 @@
                           <p>{{$teleconsult->region   }}</p>
                       </div>
                   </div>
-                  <div class="row">
+                  <div class="row pt-3 pb-3">
                       {{--            <div class="row">--}}
                       <div class="col-md-6 col-sm-12">
                           <h5>Family Name</h5>
@@ -108,9 +108,9 @@
                       {{--            </div>--}}
                   </div>
               </div>
-              <div class="col-12 pt-4">
+              <div class="col-12 pt-3 pb-3">
                   <h3>Complaint, observation and Diagnosis</h3>
-                  <div class="row">
+                  <div class="row pt-3 pb-3">
                       <div class="col-md-6 col-sm-12">
                           <h5>Complaint</h5>
                           <p>{{$teleconsult->complaint   }}</p>
@@ -120,14 +120,14 @@
                           <p>{{$teleconsult->diagnosis   }}</p>
                       </div>
                   </div>
-                  <div class="row">
+                  <div class="row pt-3 pb-3">
                       <div class="col-md-6 col-sm-12">
                           <h5>Telemedicine group/ condition</h5>
                           <p>{{$teleconsult->tg_condition   }}</p>
                       </div>
-                      <div class="form-check col-md-3 col-sm-12 text-center ">
-                          <p class="form-check" >
-                              call conf. to physician:  <span>{{$teleconsult->cc_physician   ?'Yes':'No'}}</span>
+                      <div class="form-check col-md-3 col-sm-12  ">
+                          <p >
+                              Call conf. to physician:  <span>{{$teleconsult->cc_physician   ?'Yes':'No'}}</span>
                           </p>
                       </div>
                       <div class="col-md-3 col-sm-12">
@@ -136,11 +136,11 @@
                       </div>
                   </div>
               </div>
-              <div class="col-12 pt-4">
+              <div class="col-12 pt-3 pb-3">
                   <h3>Medication/lab done prior to teleconsulation</h3>
-                  <div class="row">
-                      <div class="col-md-8">
-                          <div class="row">
+                  <div class="row pt-3 pb-3">
+                      <div class="col-md-8 pt-3 pb-3">
+                          <div class="row pt-3 pb-3">
 {{--                              asa--}}
                               <table class="table">
                                   <thead>
@@ -164,35 +164,9 @@
                                   @endif
                                   </tbody>
                               </table>
-{{--                              --}}
-{{--                              <div class="col-md-3 col-sm-12">--}}
-{{--                                  <h5 >Medication / Supplies</h5>--}}
-{{--                                  @foreach($teleconsult->proirTeleconsult as $prior)--}}
-{{--                                      <p>{{$prior->medication}}</p>--}}
-{{--                                  @endforeach--}}
-
-{{--                               </div>--}}
-{{--                              <div class="col-md-3 col-sm-12">--}}
-{{--                                  <h5 >Dosage</h5> <br>--}}
-{{--                                  @foreach($teleconsult->proirTeleconsult as $prior)--}}
-{{--                                      <p>{{$prior->dosage}}</p>--}}
-{{--                                  @endforeach--}}
-{{--                             </div>--}}
-{{--                              <div class="col-md-3 col-sm-12">--}}
-{{--                                  <h5 >Medication Form</h5>--}}
-{{--                                  @foreach($teleconsult->proirTeleconsult as $prior)--}}
-{{--                                      <p>{{$prior->medication_form}}</p>--}}
-{{--                                  @endforeach--}}
-{{--                                </div>--}}
-{{--                              <div class="col-md-3 col-sm-12">--}}
-{{--                                  <h5 >Amount Dispensed</h5>--}}
-{{--                                  @foreach($teleconsult->proirTeleconsult as $prior)--}}
-{{--                                      <p>{{$prior->amount_dispensed}}</p>--}}
-{{--                                  @endforeach--}}
-{{--                              </div>--}}
                           </div>
                       </div>
-                      <div class="col-md-4">
+                      <div class="col-md-4 pt-3 pb-3">
                           <div class="form-check col-md-12 col-sm-12  ">
                               <p class="form-check" >
                                   Referred to hospital:  <span>{{$teleconsult->prior_referred_to_hospital  ?'Yes':'No'}}</span>
@@ -205,10 +179,19 @@
                           </div>
                           <div class="row">
                               <h5 class="pt-2 pb-2">Emergency Transportation</h5>
-                              <div class="form-check col-md-12 col-sm-12 ">
-                                 <p>
-                                      Ambulance: <span>{{$teleconsult->ambulance ?'Yes':'No'}}</span>
-                                  </p>
+                              <div class="col-12">
+                                  <div class="row">
+                                      <div class="form-check col-md-4 col-sm-12 ">
+                                          <p>
+                                              Ambulance: <span>{{$teleconsult->ambulance ?'Yes':'No'}}</span>
+                                          </p>
+                                      </div>
+                                      <div class="form-check col-md-6 col-sm-12 ">
+                                          <p>
+                                              Ambulance Status: <span>{{$teleconsult->ambulance_status }}</span>
+                                          </p>
+                                      </div>
+                                  </div>
                               </div>
                               <div class="col-md-12 col-sm-12">
                                   <h5>Other</h5>
@@ -218,10 +201,10 @@
                       </div>
                   </div>
               </div>
-              <div class="col-12 pt-4">
+              <div class="col-12 pt-3 pb-3">
                   <h3>Medication/lab ordered during teleconsulation</h3>
-                  <div class="row">
-                      <div class="col-md-4 col-sm-12 ">
+                  <div class="row pt-3 pb-3">
+                      <div class="col-md-4 col-sm-12 pt-3 pb-3">
                           <table class="table">
                               <thead>
                               <tr>
@@ -241,30 +224,16 @@
                               @endif
                               </tbody>
                           </table>
-{{--                          <div class="row">--}}
-{{--                              <div class="col-md-6 col-sm-12">--}}
-{{--                                  <h5 class="text-wrap" >Medication / Supplies</h5>--}}
-{{--                                  @foreach($teleconsult->duringTeleconsult as $during)--}}
-{{--                                      <p>{{$during->medication}}</p>--}}
-{{--                                  @endforeach--}}
-{{--                            </div>--}}
-{{--                              <div class="col-md-6 col-sm-12">--}}
-{{--                                  <h5 >Quantity</h5> <br>--}}
-{{--                                  @foreach($teleconsult->duringTeleconsult as $during)--}}
-{{--                                      <p>{{$during->quantity}}</p>--}}
-{{--                                  @endforeach--}}
-{{--                             </div>--}}
-{{--                          </div>--}}
                       </div>
-                      <div class="col-md-8 col-sm-12">
-                          <div class="row">
+                      <div class="col-md-8 col-sm-12 pt-3 pb-3">
+                          <div class="row pt-3 pb-3">
                               <div class="form-check col-md-12 col-sm-12 text-center ">
                                   <p class="form-check" >
                                       Referred to hospital:  <span>{{$teleconsult->referred_to_hospital ?'Yes':'No'}}</span>
                                   </p>
                               </div>
                           </div>
-                          <div class="row">
+                          <div class="row pt-3 pb-3">
                               <div class="col-md-4 col-sm-12">
                                   <h5>Name of Caller</h5>
                                   <p>{{$teleconsult->name_of_caller   }}</p>
@@ -281,8 +250,31 @@
                       </div>
                   </div>
               </div>
-{{--              <button type="submit" class="btn btn-primary ml-3">Save</button>--}}
-          </div>
+              <div class="col-12 pt-2 pb-4">
+                  <div class="row">
+                      <div class="col-md-5 col-sm-12">
+                          <h5 >Outcome</h5>
+                          <p >{{ $teleconsult->outcome }}</p>
 
+                      </div>
+                      <div class="col-md-6 col-sm-12 pt-3 pb-3" >
+                          <div class="row">
+                              <div class="col-md-6 col-sm-12 pt-3 pb-3">
+                                  <h5 >Purpose</h5>
+                                  <p class="text-capitalize">{{ $teleconsult->purpose }}</p>
+                              </div>
+                              <div class="col-md-6 col-sm-12 pt-3 pb-3">
+                                  <h5 >Facility referred to:</h5>
+                                  <p class="text-capitalize">{{ $teleconsult->referred_to }}</p>
+                              </div>
+                              <div class="col-md-6 col-sm-12 pt-3 pb-3">
+                                      <h5 >Referral Status</h5>
+                                      <p class="text-capitalize">{{ $teleconsult->referral_status }}</p>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
       </div>
 @endsection

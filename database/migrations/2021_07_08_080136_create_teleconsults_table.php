@@ -53,6 +53,12 @@ class CreateTeleconsultsTable extends Migration
             $table->integer('contact_of_caller');
             $table->string('tcc_staff')->nullable();
 
+            $table->string('outcome')->nullable();
+            $table->string('purpose')->nullable();
+            $table->string('referred_to')->nullable();
+            $table->string('referral_status')->nullable();
+            $table->string('ambulance_status')->nullable();
+
         });
     }
 

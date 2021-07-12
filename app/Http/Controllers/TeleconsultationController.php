@@ -14,7 +14,7 @@ class TeleconsultationController extends Controller
     }
     public function index()
     {
-        $teleconsults = Teleconsult::latest()->with(['user',])->paginate(20);;
+        $teleconsults = Teleconsult::latest()->with(['user',])->paginate(20);
         return view('tele.index',compact('teleconsults'));
     }
 
@@ -124,6 +124,9 @@ class TeleconsultationController extends Controller
              "contact_of_caller"=>"required",
 //             "tcc_staff"
             "diagnosis" =>"required",
+            "purpose" =>"required",
+
+
 
 //            "prior_referred_to_hospital"=>'required',
 
