@@ -337,7 +337,7 @@
                     <div class="col-12">
                         <div class="row">
                             <div class="form-check col-md-4 col-sm-12 ml-3">
-                                <input class="form-check-input" type="checkbox" value="1" @if(isset($teleconsult )){{ ($teleconsult->ambulance === 1) ? 'checked'  : null }}@endif id="ambulance" name="ambulance">
+                                <input class="form-check-input" onclick="disableToggle('ambulance_status','other')" type="checkbox" value="1" @if(isset($teleconsult )){{ ($teleconsult->ambulance === 1) ? 'checked'  : null }}@endif id="ambulance" name="ambulance">
                                 <label class="form-check-label" for="ambulance">
                                     Ambulance
                                 </label>
@@ -349,7 +349,7 @@
                             </div>
                             <div class="form-check col-md-6 col-sm-12 ml-3">
                                 <label for="ambulance_status">Ambulance Status</label>
-                                <select required class="custom-select d-block w-100" id="ambulance_status" name="ambulance_status"  >
+                                <select disabled class="custom-select d-block w-100" id="ambulance_status" name="ambulance_status"  >
                                     <option value="" selected disabled>Choose...</option>
                                     <option value="successful" @if (isset($teleconsult->referral_status)) {{ $teleconsult->referral_status === 'successful'? 'selected' : null}} @endif >Successful</option>
                                     <option value="unsuccessful" @if (isset($teleconsult->referral_status)) {{ $teleconsult->referral_status === 'unsuccessful'? 'selected' : null}} @endif >Unsuccessful</option>
@@ -364,7 +364,7 @@
                     </div>
                     <div class="col-md-12 col-sm-12">
                         <label for="other">Other</label>
-                        <input type="text" min="1" class="form-control" id="other" name="other" placeholder="" value="{{ isset($teleconsult->other )? $teleconsult->other  : old('other ') }}" >
+                        <input type="text" min="1"  class="form-control" id="other" name="other" placeholder="" value="{{ isset($teleconsult->other )? $teleconsult->other  : old('other ') }}" >
                         @error('other ')
                         <div class="invalid-feedback">
                             {{ $message }}
@@ -471,9 +471,9 @@
                     <div class="row">
                         <div class="col-md-6 col-sm-12">
                             <label for="purpose">Purpose<span class="text-danger">*</span></label>
-                            <select required class="custom-select d-block w-100" id="purpose" name="purpose"  >
+                            <select required class="custom-select d-block w-100" id="purpose" name="purpose" onchange="selectToggle('referred_to','referral_status','purpose')" >
                                 <option value="" selected disabled>Choose...</option>
-                                <option value="referral" @if (isset($teleconsult->purpose)) {{ $teleconsult->purpose === 'referral '? 'selected' : null}} @endif >Referral</option>
+                                <option  value="referral" @if (isset($teleconsult->purpose)) {{ $teleconsult->purpose === 'referral '? 'selected' : null}} @endif >Referral</option>
                                 <option value="consultation" @if (isset($teleconsult->purpose)) {{ $teleconsult->purpose === 'consultation'? 'selected' : null}} @endif >Consultation</option>
                             </select>
                             @error('purpose ')
@@ -527,5 +527,24 @@
         });
 
         document.querySelector(val1).appendChild(clone);
+    }
+</script>
+<script>
+    function  disableToggle(val1,val2 ) {
+        console.log('in');
+        document.getElementById(val1).disabled = !document.getElementById(val1).disabled ;
+        document.getElementById(val2).disabled = !document.getElementById(val2).disabled ;
+        console.log('out');
+    }
+    function  selectToggle(val1,val2,select ) {
+        if(document.getElementById(select).value === "referral") {
+            console.log('in');
+            document.getElementById(val1).disabled = true ;
+            document.getElementById(val2).disabled = true ;
+            console.log('out');
+        }else{
+            document.getElementById(val1).disabled = false ;
+            document.getElementById(val2).disabled = false ;
+        }
     }
 </script>
