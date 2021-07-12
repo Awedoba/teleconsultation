@@ -39,8 +39,8 @@ class CreateTeleconsultsTable extends Migration
             $table->string('blood_pressure')->nullable();
             $table->integer('heart_rate')->nullable();
             $table->float('respiratory_rate')->nullable();
-            $table->string('complaint');
-            $table->string('diagnosis');
+            $table->longText('complaint');
+            $table->longText('diagnosis');
             $table->string('tg_condition')->nullable();
             $table->boolean('cc_physician')->default(0);
             $table->string('physician_name')->nullable();

@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\TeleconsultsExport;
 use App\Models\Teleconsult;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+
+
+use Maatwebsite\Excel\Facades\Excel;
 
 class TeleconsultationController extends Controller
 {
@@ -109,6 +113,11 @@ class TeleconsultationController extends Controller
         }
         $teleconsult->delete();
         return back()->with('success','Teleconsult removed successfully');
+    }
+
+    public function export()
+    {
+        return Excel::download(new TeleconsultsExport, 'teleconsult.xlsx');
     }
 
     public function validates($request){

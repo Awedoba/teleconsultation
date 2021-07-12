@@ -484,7 +484,7 @@
                         </div>
                         <div class="col-md-6 col-sm-12">
                             <label for="referred_to">Facility referred to</label>
-                            <input type="text"    class="form-control" id="referred_to" name="referred_to" placeholder="" value="{{ isset($teleconsult->referred_to )? $teleconsult->referred_to  : old('referred_to') }}" >
+                            <input type="text"  disabled  class="form-control" id="referred_to" name="referred_to" placeholder="" value="{{ isset($teleconsult->referred_to )? $teleconsult->referred_to  : old('referred_to') }}" >
                             @error('tcc_staff')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -493,7 +493,7 @@
                         </div>
                         <div class="col-md-6 col-sm-12">
                             <label for="referral_status">Referral Status</label>
-                            <select required class="custom-select d-block w-100" id="referral_status" name="referral_status"  >
+                            <select disabled class="custom-select d-block w-100" id="referral_status" name="referral_status"  >
                                 <option value="" selected disabled>Choose...</option>
                                 <option value="successful" @if (isset($teleconsult->referral_status)) {{ $teleconsult->referral_status === 'successful'? 'selected' : null}} @endif >Successful</option>
                                 <option value="unsuccessful" @if (isset($teleconsult->referral_status)) {{ $teleconsult->referral_status === 'unsuccessful'? 'selected' : null}} @endif >Unsuccessful</option>
@@ -536,11 +536,11 @@
     }
     function  selectToggle(val1,val2,select ) {
         if(document.getElementById(select).value === "referral") {
-            document.getElementById(val1).disabled = true ;
-            document.getElementById(val2).disabled = true ;
-        }else{
             document.getElementById(val1).disabled = false ;
             document.getElementById(val2).disabled = false ;
+        }else{
+            document.getElementById(val1).disabled = true ;
+            document.getElementById(val2).disabled = true ;
         }
     }
 </script>

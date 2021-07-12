@@ -27,7 +27,9 @@ Route::get('/', function () {
     return redirect()->route('teleconsult.index');
 });
 
+Route::get('teleconsult/export', [TeleconsultationController::class,'export'])->name('teleconsult.export');
 Route::resource('teleconsult',TeleconsultationController::class);
+
 Route::get('/duringTeleconsult/{duringTeleconsult}',[DuringTeleconsultController::class,'destroy'])->name('during.delete');
 Route::get('/priorTeleconsult/{priorTeleconsult}',[PriorTeleconsultController::class,'destroy'])->name('prior.delete');
 

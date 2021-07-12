@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Teleconsult extends Model
 {
     use HasFactory;
+
     protected $fillable = [
         'encounter_date',
         'community',

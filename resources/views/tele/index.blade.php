@@ -6,6 +6,8 @@
         </div>
         <div class="col-6">
             <a href="{{route('teleconsult.create')}}" class="btn btn-primary">Add Teleconsultation</a>
+
+            <a href="{{route('teleconsult.export')}}" class="btn btn-secondary ml-4">Export</a>
         </div>
         <div class="col-6"></div>
     </div>
