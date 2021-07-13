@@ -9,7 +9,9 @@
 
             <a href="{{route('teleconsult.export')}}" class="btn btn-secondary ml-4">Export</a>
         </div>
-        <div class="col-6"></div>
+        <div class="col-6">
+
+        </div>
     </div>
     <div class="container">
         <table class="table">
