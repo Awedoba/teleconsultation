@@ -16,9 +16,17 @@ class TeleconsultationController extends Controller
     {
         $this->middleware(['auth']);
     }
-    public function index()
+    public function index(Request $request)
     {
-        $teleconsults = Teleconsult::latest()->with(['user',])->paginate(20);
+//        dd($request->has('search'));
+        if ($request->has('search')){
+            $teleconsults = Teleconsult::where('patient_first_name','like','%'.$request->search.'%')
+                ->orWhere('name_of_caller','like','%'.$request->search.'%')
+                ->orWhere('contact_of_caller','like','%'.$request->search.'%')->paginate(20);
+        }else{
+            $teleconsults = Teleconsult::latest()->with(['user',])->paginate(20);
+        }
+
         return view('tele.index',compact('teleconsults'));
     }
 

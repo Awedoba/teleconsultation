@@ -4,14 +4,28 @@
         <div class="col-12">
             @include('layout.alert')
         </div>
-        <div class="col-6">
-            <a href="{{route('teleconsult.create')}}" class="btn btn-primary">Add Teleconsultation</a>
+       <div class="row">
+           <div class="col-md-6 col-sm-12">
+               <a href="{{route('teleconsult.create')}}" class="btn btn-primary">Add Teleconsultation</a>
 
-            <a href="{{route('teleconsult.export')}}" class="btn btn-secondary ml-4">Export</a>
-        </div>
-        <div class="col-6">
-
-        </div>
+               <a href="{{route('teleconsult.export')}}" class="btn btn-secondary ml-4">Export</a>
+           </div>
+           <div class="col-md-6 col-sm-12">
+               <form action="{{route('teleconsult.index')}}" method="get" class=" ">
+                   @csrf
+                   <div class="row">
+                       <div class="col-md-6 col-sm-12">
+                           <label for="search" class="sr-only">Search</label>
+                           <input type="text" id="search" name="search" placeholder="Search" class="form-control" value="{{ request()->search  }}">
+                           <p class="text-sm-center text-info small">search using patient first name, name of caller and contact of caller</p>
+                       </div>
+                       <div class="col-md-6 col-sm-12">
+                           <button type="submit" class="btn btn-primary">Search</button>
+                       </div>
+                   </div>
+               </form>
+           </div>
+       </div>
     </div>
     <div class="container">
         <table class="table">
