@@ -18,13 +18,11 @@ class UserController extends Controller
     }
 
     public function update(User $user, Request $request){
-
         $request->validate([
             'name'=>'required|max:255',
             'user_name'=>'required|max:255',
             'role' =>'required'
         ]);
-
         $user->fill($request->all())->save();
         return back()->with('Success, User account updated successfully');
     }
