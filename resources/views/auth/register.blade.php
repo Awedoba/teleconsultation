@@ -1,14 +1,12 @@
 @extends('layout.base',['pagetitle'=>'Change Password'])
 @section('content')
-
-    <div class="container">
+    <div class="container mt-5">
         <div class="row">
             @include('layout.alert')
         </div>
         <form action="{{route('register')}}" method="post" >
             @csrf
             <div class="row">
-                <p></p>
                 <div class="col-2"></div>
                 <div class="col-8">
                     <div class="col m-4">

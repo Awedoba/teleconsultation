@@ -3,6 +3,9 @@
 
 
     <div class="container">
+        <div class="row">
+            @include('layout.alert')
+        </div>
         <table class="table">
             <thead>
             <tr>
@@ -25,7 +28,7 @@
                     <td>
                         <a class="" href="{{route('password.reset',$user)}}">Reset password</a>
 {{--                        <a class="text-info" href="{{route('teleconsult.edit',$user)}}">Edit</a>--}}
-                        <a class="" href="{{route('user.edit',$user)}}">Edit account</a> 
+                        <a class="" href="{{route('user.edit',$user)}}">Edit account</a>
                         <form action="{{ route('users.delete',$user)}}" method="post"
                               onsubmit="return confirm('Are you sure you want to delete this user?');">
                             @method('DELETE')
@@ -37,7 +40,7 @@
                                 margin: 0;
                                 font: inherit;
                                 cursor: pointer;
-                                outline: inherit;">Delete</button>       
+                                outline: inherit;">Delete</button>
                         </form>
                     </td>
                 </tr>
