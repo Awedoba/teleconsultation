@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Exports\TeleconsultsExport;
 use App\Models\Teleconsult;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -22,6 +23,8 @@ class TeleconsultationController extends Controller
         if ($request->has('search')){
             $teleconsults = Teleconsult::where('patient_first_name','like','%'.$request->search.'%')
                 ->orWhere('name_of_caller','like','%'.$request->search.'%')
+                ->orWhere('facility','like','%'.$request->search.'%')
+                ->orWhere('district','like','%'.$request->search.'%')
                 ->orWhere('contact_of_caller','like','%'.$request->search.'%')->paginate(20);
         }else{
             $teleconsults = Teleconsult::latest()->with(['user',])->paginate(20);
@@ -34,7 +37,8 @@ class TeleconsultationController extends Controller
     public function create()
     {
 
-        return view('tele.create');
+        $date = Carbon::now()->toDateString();
+        return view('tele.create',compact('date'));
     }
 
 
@@ -90,14 +94,14 @@ class TeleconsultationController extends Controller
     public function edit(Teleconsult $teleconsult)
     {
 //        dd('edit');
-        return view('tele.edit',compact('teleconsult'));
+        $date = Carbon::now()->toDateString();
+        return view('tele.edit',compact('teleconsult','date'));
     }
 
 
     public function update(Request $request, Teleconsult $teleconsult)
     {
 //        dd($request->has('cc_physician'));
-
         $teleconsult->fill($request->all());
         $teleconsult->cc_physician = $request->has('cc_physician');
         $teleconsult->prior_referred_to_hospital = $request->has('prior_referred_to_hospital');
@@ -142,9 +146,6 @@ class TeleconsultationController extends Controller
 //             "tcc_staff"
             "diagnosis" =>"required",
             "purpose" =>"required",
-
-
-
 //            "prior_referred_to_hospital"=>'required',
 
         ]);

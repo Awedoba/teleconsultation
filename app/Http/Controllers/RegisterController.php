@@ -19,9 +19,9 @@ class RegisterController extends Controller
     public function store(Request $request){
         $request->validate([
             'fullname'=>'required|max:255',
-            'user_name'=>'required|max:255',
+            'user_name'=>'required|max:255|unique:App\Models\User,user_name',
             'password'=>'required',
-            'role' =>'required'
+            'role' =>'required',
         ]);
 
         $user = User::create([
@@ -34,6 +34,7 @@ class RegisterController extends Controller
 
 //        $user->assignRole($request->roles);
 //        auth()->attempt($request->only('user_name','password'));
-        return back()->with('Success','User added successfully!');
+        return back()->with('Success, User account added successfully');
+//        return back()->with('Success','User added successfully!');
     }
 }

@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-md-6 col-sm-12">
                 <label for="encounter_date">Encounter Date <span class="text-danger">*</span> </label>
-                <input required type="date" class="form-control" id="encounter_date" name="encounter_date" placeholder="" value="{{ isset($teleconsult->encounter_date)? $teleconsult->encounter_date : old('encounter_date') }}" >
+                <input required type="date" class="form-control" max="{{$date}}" id="encounter_date" name="encounter_date" placeholder="" value="{{ isset($teleconsult->encounter_date)? $teleconsult->encounter_date : old('encounter_date') }}" >
                 @error('encounter_date')
                 <div class="invalid-feedback">
                     {{ $message }}
@@ -473,10 +473,11 @@
                             <label for="purpose">Purpose<span class="text-danger">*</span></label>
                             <select required class="custom-select d-block w-100" id="purpose" name="purpose" onchange="selectToggle('referred_to','referral_status','purpose')" >
                                 <option value="" selected disabled>Choose...</option>
-                                <option  value="referral" @if (isset($teleconsult->purpose)) {{ $teleconsult->purpose === 'referral '? 'selected' : null}} @endif >Referral</option>
-                                <option value="consultation" @if (isset($teleconsult->purpose)) {{ $teleconsult->purpose === 'consultation'? 'selected' : null}} @endif >Consultation</option>
+                                <option  value="referral" @if (isset($teleconsult->purpose)) {{ $teleconsult->purpose === 'referral' ? 'selected' : null}} @endif >Referral</option>
+                                <option value="consultation" @if (isset($teleconsult->purpose)) {{ $teleconsult->purpose === 'consultation' ?  'selected' : null}} @endif >Consultation</option>
                             </select>
                             @error('purpose ')
+
                             <div class="invalid-feedback">
                                 {{ $message }}
                             </div>
@@ -493,7 +494,7 @@
                         </div>
                         <div class="col-md-6 col-sm-12">
                             <label for="referral_status">Referral Status</label>
-                            <select disabled class="custom-select d-block w-100" id="referral_status" name="referral_status"  >
+                            <select disabled onchange="facilityClear()" class="custom-select d-block w-100" id="referral_status" name="referral_status"  >
                                 <option value="" selected disabled>Choose...</option>
                                 <option value="successful" @if (isset($teleconsult->referral_status)) {{ $teleconsult->referral_status === 'successful'? 'selected' : null}} @endif >Successful</option>
                                 <option value="unsuccessful" @if (isset($teleconsult->referral_status)) {{ $teleconsult->referral_status === 'unsuccessful'? 'selected' : null}} @endif >Unsuccessful</option>
@@ -541,6 +542,11 @@
         }else{
             document.getElementById(val1).disabled = true ;
             document.getElementById(val2).disabled = true ;
+        }
+    }
+    function  facilityClear( ) {
+        if(document.getElementById('referral_status').value === "unsuccessful") {
+            document.getElementById('referred_to').value = '' ;
         }
     }
 </script>
