@@ -46,4 +46,7 @@ class User extends Authenticatable
     public function teleConsult(){
         return $this->hasMany(Teleconsult::class);
     }
+    public function covid(){
+        return $this->hasMany(Covid::class);
+    }
 }

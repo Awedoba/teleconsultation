@@ -8,6 +8,7 @@ use App\Http\Controllers\TeleconsultationController;
 use App\Http\Controllers\PasswordController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CovidController;
 use App\Models\DuringTeleconsult;
 use App\Models\PriorTeleconsult;
 use Illuminate\Support\Facades\Route;
@@ -30,6 +31,8 @@ Route::get('/', function () {
 Route::get('teleconsult/export', [TeleconsultationController::class,'export'])->name('teleconsult.export');
 Route::resource('teleconsult',TeleconsultationController::class);
 
+//Route::get('/covid/');
+
 Route::get('/duringTeleconsult/{duringTeleconsult}',[DuringTeleconsultController::class,'destroy'])->name('during.delete');
 Route::get('/priorTeleconsult/{priorTeleconsult}',[PriorTeleconsultController::class,'destroy'])->name('prior.delete');
 
@@ -43,7 +46,6 @@ Route::post('/changepassword', [PasswordController::class, 'store'])->name('pass
 Route::get('/register', [RegisterController::class, 'index'])->name('register');
 Route::post('/register', [RegisterController::class, 'store'])->name('register');
 
-
 Route::get('/users',[UserController::class,'index'])->name('users');
 Route::delete('/users/{user}',[UserController::class,'destroy'])->name('users.delete');
 
@@ -51,3 +53,5 @@ Route::get('/resetpassword/{user}', [PasswordController::class, 'reset'])->name(
 
 Route::get('/users/{user}/edit', [UserController::class, 'edit'])->name('user.edit');
 Route::post('/users/{user}', [UserController::class, 'update'])->name('user.update');
+
+Route::resource('/covid', CovidController::class);

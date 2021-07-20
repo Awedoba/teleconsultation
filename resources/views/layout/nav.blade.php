@@ -9,6 +9,9 @@
                 <a class="nav-link" href="{{route('register')}}">Register User</a>
             </li>
             <li class="nav-item">
+            <a href="{{route('covid.index')}}" class="nav-link" >COVID</a>
+        </li>
+            <li class="nav-item">
                 <a class="nav-link" href="{{route('users')}}">All User</a>
             </li>
         @endif
