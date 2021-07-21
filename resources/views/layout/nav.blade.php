@@ -4,13 +4,14 @@
     <a class="navbar-brand" href="{{route('teleconsult.index')}}">Teleconsult</a>
 {{--    links--}}
     <ul class="navbar-nav">
+        <li class="nav-item">
+            <a href="{{route('covid.index')}}" class="nav-link" >COVID Teleconsult</a>
+        </li>
         @if(auth()->user()->role === "admin")
             <li class="nav-item">
                 <a class="nav-link" href="{{route('register')}}">Register User</a>
             </li>
-            <li class="nav-item">
-            <a href="{{route('covid.index')}}" class="nav-link" >COVID</a>
-        </li>
+
             <li class="nav-item">
                 <a class="nav-link" href="{{route('users')}}">All User</a>
             </li>

@@ -3,7 +3,7 @@
     <div class="row">
         @include('layout.alert')
     </div>
-    <form action="{{route('teleconsult.store')}}" method="post" class="bg-white p-4">
+    <form action="{{route('covid.store')}}" method="post" class="bg-white p-4">
         @csrf
         @include('covid.form')
     </form>

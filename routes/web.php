@@ -28,6 +28,7 @@ Route::get('/', function () {
     return redirect()->route('teleconsult.index');
 });
 
+Route::get('teleconsult/exportRange', [TeleconsultationController::class,'exportRange'])->name('teleconsult.exportRange');
 Route::get('teleconsult/export', [TeleconsultationController::class,'export'])->name('teleconsult.export');
 Route::resource('teleconsult',TeleconsultationController::class);
 
@@ -54,4 +55,7 @@ Route::get('/resetpassword/{user}', [PasswordController::class, 'reset'])->name(
 Route::get('/users/{user}/edit', [UserController::class, 'edit'])->name('user.edit');
 Route::post('/users/{user}', [UserController::class, 'update'])->name('user.update');
 
-Route::resource('/covid', CovidController::class);
+Route::get('covid/exportRange', [CovidController::class,'exportRange'])->name('covid.exportRange');
+Route::get('covid/export', [CovidController::class,'export'])->name('covid.export');
+Route::resource('covid', CovidController::class);
+

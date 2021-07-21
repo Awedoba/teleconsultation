@@ -16,6 +16,7 @@ class CreateCovidsTable extends Migration
         Schema::create('covids', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->string('user_id');
             $table->date('encounter_date');
             $table->string('name');
             $table->string('sex');
