@@ -147,7 +147,6 @@ class TeleconsultationController extends Controller
             "diagnosis" =>"required",
             "purpose" =>"required",
 //            "prior_referred_to_hospital"=>'required',
-
         ]);
     }
 }
