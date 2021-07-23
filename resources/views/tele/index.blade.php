@@ -26,7 +26,31 @@
                </form>
            </div>
        </div>
+        <div class="col-12">
+            <div class="row">
+                        <div class="col-md- col-sm-12">
+                <form action="{{route('teleconsult.exportRange')}}" method="get" class=" ">
+                    @csrf
+                    <div class="row">
+                        <div class="col-md-4 col-sm-12">
+                            <label for="from_date" class="">From date</label>
+                            <input type="date" required id="from_date" name="from_date" placeholder="from_date" class="form-control" value="{{ request()->from_date  }}">
+                        </div>
+                        <div class="col-md-4 col-sm-12">
+                            <label for="to_date" class="">To Date</label>
+                            <input type="date" id="to_date" name="to_date" placeholder="to_date" class="form-control" value="{{ request()->to_date  }}">
+                            {{--                        <p class="text-sm-center text-info small">search using patient first name, name of caller,contact of caller,facility,district</p>--}}
+                        </div>
+                        <div class="col-md-4 col-sm-12 mt-4">
+                            <button type="submit" class="btn btn-primary">Export</button>
+                        </div>
+                    </div>
+                </form>
+                        </div>
+            </div>
+        </div>
     </div>
+
     <div class="container">
         <table class="table">
             <thead>

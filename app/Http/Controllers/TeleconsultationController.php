@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Exports\TeleconsultsExport;
+use App\Exports\TeleconsultsRangeExport;
 use App\Models\Teleconsult;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -130,6 +131,19 @@ class TeleconsultationController extends Controller
     public function export()
     {
         return Excel::download(new TeleconsultsExport, 'teleconsult.xlsx');
+    }
+    public function exportRange(Request $request)
+    {
+
+        $request->validate([
+            "from_date"=>"required|date",
+            "to_date"=>"nullable|date"
+            ]);
+
+        $from_date = Carbon::createFromFormat('Y-m-d', $request->from_date);
+        $to_date = $request->filled('to_date') ? Carbon::createFromFormat('Y-m-d', $request->to_date): null;
+//        dd(["from"=>$from_date,"to"=>$to_date]);
+        return Excel::download(new TeleconsultsRangeExport($from_date, $to_date), 'teleconsult.xlsx');
     }
 
     public function validates($request){
