@@ -47,6 +47,19 @@ class CovidController extends Controller
         return back()->with('success', 'Covid Teleconsult added successfully');
     }
 
+    public function validates($request)
+    {
+        $request->validate([
+            'encounter_date' => 'required|date',
+            'name' => 'nullable',
+            'location' => 'nullable',
+            'contact_of_caller' => 'nullable',
+            'complaints' => 'nullable',
+            'assistance_offered' => 'nullable',
+            'sex' => 'required',
+        ]);
+    }
+
     public function edit( Covid $covid)
     {
         $date = Carbon::now()->toDateString();
