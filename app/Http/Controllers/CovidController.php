@@ -84,5 +84,20 @@ class CovidController extends Controller
         //dd($teleconsult->duringTeleconsult[0]['medication']);
         return view('covid.view', compact('covid'));
     }
+    public function export()
+    {
+        return Excel::download(new CovidsExport, 'Covid teleconsult.xlsx');
+    }
+    public function exportRange(Request $request)
+    {
+        $request->validate([
+            "from_date"=>"required|date",
+            "to_date"=>"nullable|date"
+        ]);
 
+        $from_date = Carbon::createFromFormat('Y-m-d', $request->from_date);
+        $to_date = $request->filled('to_date') ? Carbon::createFromFormat('Y-m-d', $request->to_date): null;
+//        dd(["from"=>$from_date,"to"=>$to_date]);
+        return Excel::download(new CovidsRangeExport($from_date, $to_date), 'Covid teleconsult.xlsx');
+    }
 }
