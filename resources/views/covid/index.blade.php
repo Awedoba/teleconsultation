@@ -1,5 +1,10 @@
 @extends('layout.base')
 @section('content')
+    <div class="row text-center p-2">
+        <div class="col text-center">
+           <h1>COVID Teleconsultation </h1>
+        </div>
+    </div>
     <div class="container pb-4">
         <div class="col-12">
             @include('layout.alert')
@@ -68,7 +73,7 @@
             @foreach($covids as $key=>$covid)
                 <tr>
                     <th scope="row">{{$key}}</th>
-                    <td>{{$covid->encounter_date }}</td>
+                    <td>{{$covid->encounterDate() }}</td>
                     <td>{{$covid->name }}</td>
                     <td>{{$covid->sex }}</td>
                     <td>{{$covid->location }}</td>

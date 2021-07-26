@@ -30,7 +30,7 @@ class TeleconsultsRangeExport implements FromQuery, WithMapping, WithHeadings
 
 //        dd(["from"=>$this->from_date,
 //            "to"=>$this->to_date]);
-        $result = Teleconsult::whereBetween('created_at', [$this->from_date->format('Y-m-d')." 00:00:00", $this->to_date->format('Y-m-d')." 23:59:59"]);
+        $result = Teleconsult::whereBetween('encounter_date', [$this->from_date->format('Y-m-d')." 00:00:00", $this->to_date->format('Y-m-d')." 23:59:59"]);
         return $result;
 //        return Teleconsult::where('id','>',1);
     }

@@ -21,13 +21,13 @@ class PasswordController extends Controller
     {
         $request->validate([
             'old_password' => 'required',
-            'password' => 'required|confirmed',
+            'password' => 'required|confirmed|min:6',
         ]);
         $password = $request->password;
         if(Hash::check($request->old_password,auth()->user()->password )){
             auth()->user()->fill(['password'=>Hash::make($password)])->save();
         }
-        return back()->with('Success', 'Password changed successfully!');
+        return back()->with('success', 'Password changed successfully!');
     }
 
     public function reset(User $user)

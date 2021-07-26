@@ -1,6 +1,6 @@
 
 <div class="row">
-    <h1>Teleconsultation Form</h1>
+    <h1>COVID Teleconsult Form</h1>
 </div>
 <div class="row">
     <div class="col-md-5 col-sm-12">

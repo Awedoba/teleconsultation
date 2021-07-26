@@ -32,7 +32,7 @@ class CovidsRangeExport implements FromQuery, WithMapping, WithHeadings
 //    }
     public function query()
     {
-        $result = Covid::whereBetween('created_at', [$this->from_date->format('Y-m-d')." 00:00:00", $this->to_date->format('Y-m-d')." 23:59:59"]);
+        $result = Covid::whereBetween('encounter_date', [$this->from_date->format('Y-m-d')." 00:00:00", $this->to_date->format('Y-m-d')." 23:59:59"]);
         return $result;
     }
 

@@ -1,5 +1,10 @@
 @extends('layout.base')
 @section('content')
+    <div class="row  p-2">
+        <div class="col text-center">
+            <h1>Normal Teleconsultation </h1>
+        </div>
+    </div>
     <div class="container pb-4">
         <div class="col-12">
             @include('layout.alert')
@@ -69,7 +74,7 @@
             @foreach($teleconsults as $key=>$teleconsult)
                 <tr>
                     <th scope="row">{{$key}}</th>
-                    <td>{{$teleconsult->encounter_date }}</td>
+                    <td>{{$teleconsult->encounterDate()}}</td>
                     <td>{{$teleconsult->facility }}</td>
                     <td>{{$teleconsult->district }}</td>
                     <td>{{$teleconsult->patient_first_name }}</td>

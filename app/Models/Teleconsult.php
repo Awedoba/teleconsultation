@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -51,6 +52,12 @@ class Teleconsult extends Model
         "referral_status",
         "ambulance_status",
     ];
+
+    public function encounterDate ()
+    {
+        return Carbon::createFromFormat('Y-m-d', $this->encounter_date)->format('d-m-Y');
+    }
+
     public function user(){
         return $this->belongsTo(User::class);
     }
@@ -60,4 +67,5 @@ class Teleconsult extends Model
     public function duringTeleconsult(){
         return $this->hasMany(DuringTeleconsult::class);
     }
+
 }

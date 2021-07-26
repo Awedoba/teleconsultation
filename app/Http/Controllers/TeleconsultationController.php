@@ -37,7 +37,6 @@ class TeleconsultationController extends Controller
 
     public function create()
     {
-
         $date = Carbon::now()->toDateString();
         return view('tele.create',compact('date'));
     }
@@ -161,7 +160,6 @@ class TeleconsultationController extends Controller
             "diagnosis" =>"required",
             "purpose" =>"required",
 //            "prior_referred_to_hospital"=>'required',
-
         ]);
     }
 }
