@@ -13,7 +13,7 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="{{route('users')}}">All User</a>
+                <a class="nav-link" href="{{route('users')}}">All User(s)</a>
             </li>
         @endif
         @guest
