@@ -24,7 +24,7 @@ class UserController extends Controller
             'role' =>'required'
         ]);
         $user->fill($request->all())->save();
-        return back()->with('Success, User account updated successfully');
+        return back()->with('success, User account updated successfully');
     }
 
     public function destroy(User $user){

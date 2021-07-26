@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -23,5 +24,9 @@ class Covid extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+    public function encounterDate ()
+    {
+        return Carbon::createFromFormat('Y-m-d', $this->encounter_date)->format('d-m-Y');
     }
 }
