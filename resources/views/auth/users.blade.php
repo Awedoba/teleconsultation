@@ -20,7 +20,7 @@
             <tbody>
             @foreach($users as $key=>$user)
                 <tr>
-                    <th scope="row">{{$key}}</th>
+                    <th scope="row">{{$key + 1}}</th>
                     <td>{{$user->name }}</td>
                     <td>{{$user->user_name }}</td>
                     <td>{{$user->role }}</td>

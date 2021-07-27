@@ -73,7 +73,7 @@
             <tbody>
             @foreach($teleconsults as $key=>$teleconsult)
                 <tr>
-                    <th scope="row">{{$key}}</th>
+                    <th scope="row">{{$key + 1}}</th>
                     <td>{{$teleconsult->encounterDate()}}</td>
                     <td>{{$teleconsult->facility }}</td>
                     <td>{{$teleconsult->district }}</td>

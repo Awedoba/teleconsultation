@@ -72,7 +72,7 @@
             <tbody>
             @foreach($covids as $key=>$covid)
                 <tr>
-                    <th scope="row">{{$key}}</th>
+                    <th scope="row">{{$key + 1}}</th>
                     <td>{{$covid->encounterDate() }}</td>
                     <td>{{$covid->name }}</td>
                     <td>{{$covid->sex }}</td>
