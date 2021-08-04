@@ -11,10 +11,14 @@
             TeleConsult
         </title>
         <style>
+            #root{
+                padding-bottom: 70px;
+            }
             .slap__bt-page{
-                width: 100%;
-                position: absolute;
+                /*position: absolute;*/
+                position: fixed;
                 bottom: 0;
+                width: 100%;
             }
         </style>
         <!-- Scripts -->
@@ -25,13 +29,10 @@
     </head>
     <body class="bg-light">
         @include('layout.nav')
-        <div id="root" class="container pt-lg-5 mt-lg-5">
+        <div id="root" class="container pt-lg-5 mt-lg-5 ">
             @yield('content')
         </div>
         @include('layout.footer')
-        {{-- <div id="root" class="container pt-lg-5 mt-lg-5">
-            @yield('content')
-        </div> --}}
 
     </body>
 </html>
