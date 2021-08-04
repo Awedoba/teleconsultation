@@ -1,7 +1,8 @@
 
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top justify-content-lg-around ">
     <!-- Brand -->
-    <a class="navbar-brand" href="{{route('teleconsult.index')}}">Teleconsult</a>
+    <a class="navbar-brand" href="{{route('teleconsult.index')}}"><img src="{{ URL::to('/images/ghs_logo.png') }}" height="40">  Teleconsult</a>
+
 {{--    links--}}
     <ul class="navbar-nav">
         <li class="nav-item">
