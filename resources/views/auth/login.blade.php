@@ -22,6 +22,7 @@
                 <div class="col-2"></div>
                 <div class="col-8">
                     <div class="col m-4">
+                        <img class="mx-auto d-block" src="{{ URL::to('/images/ghslogo.jpg') }}">
                         <label for="user_name">Username</label>
                         <input type="text" class="form-control" id="user_name" name="user_name" placeholder=""  >
                         @error('user_name')
