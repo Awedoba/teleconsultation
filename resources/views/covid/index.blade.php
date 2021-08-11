@@ -83,7 +83,7 @@
                         <a class="" href="{{route('covid.show',$covid)}}">View</a>
                         <a class="text-info" href="{{route('covid.edit',$covid)}}">Edit</a>
                         @if(auth()->user()->role === "admin")
-                        <form action="{{route('teleconsult.destroy',$covid)}}" method="post"
+                        <form action="{{route('covid.destroy',$covid)}}" method="post"
                               onsubmit="return confirm('Are you sure you want to delete this teleconsult?');"
                         > @csrf
                             @method('DELETE')
