@@ -19,10 +19,13 @@ class CreateCovidsTable extends Migration
             $table->string('user_id');
             $table->date('encounter_date');
             $table->string('name');
+            $table->integer('age');
+            $table->string('unit');
             $table->string('sex');
             $table->integer('contact_of_caller');
             $table->string('location');
             $table->string('complaints');
+            $table->string('vaccine');
             $table->string('assistance_offered');
         });
     }

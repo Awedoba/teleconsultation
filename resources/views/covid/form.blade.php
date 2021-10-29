@@ -44,6 +44,28 @@
                 @enderror
             </div>
             <div class="col-md-6 col-sm-12">
+                    <label for="age">Age<span class="text-danger">*</span></label>
+                    <input type="number" required min="1" class="form-control" id="age" name="age" placeholder="" value="{{ isset($covid->age )? $covid->age  : old('age ') }}" >
+                    @error('age ')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                    @enderror
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <label for="unit">Unit(Age)<span class="text-danger">*</span></label>
+                    <select required class="custom-select d-block w-100" id="unit" name="unit"  >
+                        <option value="" selected disabled>Choose...</option>
+                        <option value="months" @if (isset($covid->unit)) {{ $covid->unit === 'months'? 'selected' : null}} @endif >Months</option>
+                        <option value="years" @if (isset($covid->unit)) {{ $covid->unit === 'years'? 'selected' : null}} @endif >Years</option>
+                    </select>
+                    @error('unit ')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                    @enderror
+                </div>
+            <div class="col-md-6 col-sm-12">
                 <label for="sex">Sex<span class="text-danger">*</span></label>
                 <select required class="custom-select d-block w-100" id="sex" name="sex"  >
                     <option value="" selected disabled>Choose...</option>
@@ -51,6 +73,20 @@
                     <option value="female" @if (isset($covid->sex)) {{ $covid->sex === 'female'? 'selected' : null}} @endif >Female</option>
                 </select>
                 @error('sex')
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+                @enderror
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <label for="vaccine">Vaccine Status<span class="text-danger">*</span></label>
+                <select required class="custom-select d-block w-100" id="vaccine" name="vaccine"  >
+                    <option value="" selected disabled>Choose...</option>
+                    <option value="fully vaccinated" @if (isset($covid->vaccine)) {{ $covid->vaccine === 'fully vaccinated'? 'selected' : null}} @endif >Fully Vaccinated</option>
+                    <option value="partially vaccinated" @if (isset($covid->vaccine)) {{ $covid->vaccine === 'partially vaccinated'? 'selected' : null}} @endif >Partially Vaccinated</option>
+                    <option value="not vaccinated" @if (isset($covid->vaccine)) {{ $covid->vaccine === 'not vaccinated'? 'selected' : null}} @endif >Not Vaccinated</option>
+                </select>
+                    @error('sex ')
                 <div class="invalid-feedback">
                     {{ $message }}
                 </div>

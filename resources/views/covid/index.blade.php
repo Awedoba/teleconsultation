@@ -63,6 +63,7 @@
                 <th scope="col">Encounter Date</th>
                 <th scope="col">Name</th>
                 <th scope="col">Sex</th>
+                <th scope="col">Vaccine Status</th>
                 <th scope="col">Location</th>
                 <th scope="col">Assistance Offered</th>
                 {{-- <th scope="col">Name of TCC Staff --}}
@@ -76,6 +77,7 @@
                     <td>{{$covid->encounterDate() }}</td>
                     <td>{{$covid->name }}</td>
                     <td>{{$covid->sex }}</td>
+                    <td>{{$covid->vaccine }}</td>
                     <td>{{$covid->location }}</td>
                     <td>{{$covid->assistance_offered }}</td>
                     {{-- <td>{{$covid->user->name}}</td> --}}
