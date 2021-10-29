@@ -27,6 +27,7 @@ class Teleconsult extends Model
         'region',
         'date_of_birth',
         'age',
+        'unit',
         'sex',
         'weight',
         'temperature',

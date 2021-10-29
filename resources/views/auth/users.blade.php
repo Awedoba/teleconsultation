@@ -26,7 +26,7 @@
                     <td>{{$user->role }}</td>
                     <td>{{$user->created_at }}</td>
                     <td>
-                        <a class="" href="{{route('password.reset',$user)}}">Reset password</a>
+                        <a class="" href="{{route('password.change',$user)}}">Reset password</a>
 {{--                        <a class="text-info" href="{{route('teleconsult.edit',$user)}}">Edit</a>--}}
                         <a class="" href="{{route('user.edit',$user)}}">Edit account</a>
                         <form action="{{ route('users.delete',$user)}}" method="post"

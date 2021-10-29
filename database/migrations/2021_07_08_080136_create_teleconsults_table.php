@@ -33,6 +33,7 @@ class CreateTeleconsultsTable extends Migration
             $table->string('region')->nullable();
             $table->date('date_of_birth')->nullable();
             $table->integer('age');
+            $table->string('unit');
             $table->string('sex');
             $table->float('weight')->nullable();
             $table->float('temperature')->nullable();

@@ -152,6 +152,19 @@
                     @enderror
                 </div>
                 <div class="col-md-2 col-sm-12">
+                    <label for="unit">Unit(Age)<span class="text-danger">*</span></label>
+                    <select required class="custom-select d-block w-100" id="unit" name="unit"  >
+                        <option value="" selected disabled>Choose...</option>
+                        <option value="months" @if (isset($teleconsult->unit)) {{ $teleconsult->unit === 'months'? 'selected' : null}} @endif >Months</option>
+                        <option value="years" @if (isset($teleconsult->unit)) {{ $teleconsult->unit === 'years'? 'selected' : null}} @endif >Years</option>
+                    </select>
+                    @error('unit ')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                    @enderror
+                </div>
+                <div class="col-md-2 col-sm-12">
                     <label for="sex">Sex<span class="text-danger">*</span></label>
                     <select required class="custom-select d-block w-100" id="sex" name="sex"  >
                         <option value="" selected disabled>Choose...</option>
