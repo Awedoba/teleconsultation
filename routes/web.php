@@ -28,34 +28,34 @@ Route::get('/', function () {
     return redirect()->route('teleconsult.index');
 });
 
-Route::get('teleconsult/exportRange', [TeleconsultationController::class,'exportRange'])->name('teleconsult.exportRange');
-Route::get('teleconsult/export', [TeleconsultationController::class,'export'])->name('teleconsult.export');
-Route::resource('teleconsult',TeleconsultationController::class);
+Route::get('teleconsult/exportRange', [TeleconsultationController::class,'exportRange'])->name('teleconsult.exportRange')->middleware('auth');
+Route::get('teleconsult/export', [TeleconsultationController::class,'export'])->name('teleconsult.export')->middleware('auth');
+Route::resource('teleconsult',TeleconsultationController::class)->middleware('auth');
 
 //Route::get('/covid/');
 
-Route::get('/duringTeleconsult/{duringTeleconsult}',[DuringTeleconsultController::class,'destroy'])->name('during.delete');
-Route::get('/priorTeleconsult/{priorTeleconsult}',[PriorTeleconsultController::class,'destroy'])->name('prior.delete');
+Route::get('/duringTeleconsult/{duringTeleconsult}',[DuringTeleconsultController::class,'destroy'])->name('during.delete')->middleware('auth');
+Route::get('/priorTeleconsult/{priorTeleconsult}',[PriorTeleconsultController::class,'destroy'])->name('prior.delete')->middleware('auth');
 
 Route::get('/login',[LoginController::class,'index'])->name('login');
 Route::post('/login',[LoginController::class,'view'])->name('login');
-Route::post('/logout',[LogoutController::class,'logout'])->name('logout');
+Route::post('/logout',[LogoutController::class,'logout'])->name('logout')->middleware('auth');
 
-Route::get('/changepassword', [PasswordController::class, 'edit']);
-Route::post('/changepassword', [PasswordController::class, 'store'])->name('password.change');
+Route::get('/changepassword', [PasswordController::class, 'edit'])->middleware('auth');
+Route::post('/changepassword', [PasswordController::class, 'store'])->name('password.change')->middleware('auth');
 
-Route::get('/register', [RegisterController::class, 'index'])->name('register');
-Route::post('/register', [RegisterController::class, 'store'])->name('register');
+Route::get('/register', [RegisterController::class, 'index'])->name('register')->middleware('auth');
+Route::post('/register', [RegisterController::class, 'store'])->name('register')->middleware('auth');
 
-Route::get('/users',[UserController::class,'index'])->name('users');
-Route::delete('/users/{user}',[UserController::class,'destroy'])->name('users.delete');
+Route::get('/users',[UserController::class,'index'])->name('users')->middleware('auth');
+Route::delete('/users/{user}',[UserController::class,'destroy'])->name('users.delete')->middleware('auth');
 
-Route::get('/resetpassword/{user}', [PasswordController::class, 'reset'])->name('password.reset');
+Route::get('/resetpassword/{user}', [PasswordController::class, 'reset'])->name('password.reset')->middleware('auth');
 
-Route::get('/users/{user}/edit', [UserController::class, 'edit'])->name('user.edit');
-Route::post('/users/{user}', [UserController::class, 'update'])->name('user.update');
+Route::get('/users/{user}/edit', [UserController::class, 'edit'])->name('user.edit')->middleware('auth');
+Route::post('/users/{user}', [UserController::class, 'update'])->name('user.update')->middleware('auth');
 
-Route::get('covid/exportRange', [CovidController::class,'exportRange'])->name('covid.exportRange');
-Route::get('covid/export', [CovidController::class,'export'])->name('covid.export');
-Route::resource('covid', CovidController::class);
+Route::get('covid/exportRange', [CovidController::class,'exportRange'])->name('covid.exportRange')->middleware('auth');
+Route::get('covid/export', [CovidController::class,'export'])->name('covid.export')->middleware('auth');
+Route::resource('covid', CovidController::class)->middleware('auth');
 
