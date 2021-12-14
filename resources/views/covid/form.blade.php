@@ -56,6 +56,10 @@
                     <label for="unit">Unit(Age)<span class="text-danger">*</span></label>
                     <select required class="custom-select d-block w-100" id="unit" name="unit"  >
                         <option value="" selected disabled>Choose...</option>
+                        <option value="minutes" @if (isset($covid->unit)) {{ $covid->unit === 'minutes'? 'selected' : null}} @endif >Minutes</option>
+                        <option value="hours" @if (isset($covid->unit)) {{ $covid->unit === 'hours'? 'selected' : null}} @endif >Hours</option>
+                        <option value="days" @if (isset($covid->unit)) {{ $covid->unit === 'days'? 'selected' : null}} @endif >Days</option>
+                        <option value="weeks" @if (isset($covid->unit)) {{ $covid->unit === 'weeks'? 'selected' : null}} @endif >Weeks</option>
                         <option value="months" @if (isset($covid->unit)) {{ $covid->unit === 'months'? 'selected' : null}} @endif >Months</option>
                         <option value="years" @if (isset($covid->unit)) {{ $covid->unit === 'years'? 'selected' : null}} @endif >Years</option>
                     </select>
