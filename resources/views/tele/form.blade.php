@@ -1,4 +1,3 @@
-
 <div class="row">
     <h1>Teleconsultation Form</h1>
 </div>
@@ -146,6 +145,23 @@
                     <label for="age">Age<span class="text-danger">*</span></label>
                     <input type="number" required min="1" class="form-control" id="age" name="age" placeholder="" value="{{ isset($teleconsult->age )? $teleconsult->age  : old('age ') }}" >
                     @error('age ')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                    @enderror
+                </div>
+                <div class="col-md-2 col-sm-12">
+                    <label for="unit">Unit(Age)<span class="text-danger">*</span></label>
+                    <select required class="custom-select d-block w-100" id="unit" name="unit"  >
+                        <option value="" selected disabled>Choose...</option>
+                        <option value="minutes" @if (isset($covid->unit)) {{ $covid->unit === 'minutes'? 'selected' : null}} @endif >Minutes</option>
+                        <option value="hours" @if (isset($covid->unit)) {{ $covid->unit === 'hours'? 'selected' : null}} @endif >Hours</option>
+                        <option value="days" @if (isset($covid->unit)) {{ $covid->unit === 'days'? 'selected' : null}} @endif >Days</option>
+                        <option value="weeks" @if (isset($covid->unit)) {{ $covid->unit === 'weeks'? 'selected' : null}} @endif >Weeks</option>
+                        <option value="months" @if (isset($teleconsult->unit)) {{ $teleconsult->unit === 'months'? 'selected' : null}} @endif >Months</option>
+                        <option value="years" @if (isset($teleconsult->unit)) {{ $teleconsult->unit === 'years'? 'selected' : null}} @endif >Years</option>
+                    </select>
+                    @error('unit ')
                     <div class="invalid-feedback">
                         {{ $message }}
                     </div>
