@@ -35,12 +35,16 @@ class TeleconsultsExport implements FromQuery, WithMapping, WithHeadings
             $teleconsult->facility,
             $teleconsult->patient_first_name,
             $teleconsult->age,
+            $teleconsult->unit,
             $teleconsult->sex,
             $teleconsult->complaint,
             $teleconsult->name_of_caller,
             $teleconsult->contact_of_caller,
             $teleconsult->diagnosis,
             $teleconsult->purpose,
+            $teleconsult->apgar,
+            $teleconsult->gcs,
+            $teleconsult->fhr
         ];
     }
 
@@ -54,11 +58,15 @@ class TeleconsultsExport implements FromQuery, WithMapping, WithHeadings
             'Patient name',
             'Age',
             'Sex',
+            'Unit',
             'Complaint',
             'Name of caller',
             'Contact of caller',
             'Diagnosis',
             'Purpose',
+            'APGAR',
+            'GCS',
+            'FHR'
         ];
     }
 }

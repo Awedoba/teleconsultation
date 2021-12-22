@@ -159,6 +159,10 @@ class TeleconsultationController extends Controller
 //             "tcc_staff"
             "diagnosis" =>"required",
             "purpose" =>"required",
+            "apgar" => "nullable",
+            "gcs" => "nullable",
+            "fhr"=>"nullable"
+
 //            "prior_referred_to_hospital"=>'required',
         ]);
     }

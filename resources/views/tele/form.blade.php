@@ -34,7 +34,7 @@
                 @enderror
             </div>
             <div class="col-md-6 col-sm-12">
-                <label for="facility">Facility <span class="text-danger">*</span></label>
+                <label for="facility">Facility<span class="text-danger">*</span></label>
                 <input type="text" required class="form-control" id="facility" name="facility" placeholder="" value="{{ isset($teleconsult->facility )? $teleconsult->facility  : old('facility ') }}" >
                 @error('facility ')
                 <div class="invalid-feedback">
@@ -154,13 +154,10 @@
                     <label for="unit">Unit(Age)<span class="text-danger">*</span></label>
                     <select required class="custom-select d-block w-100" id="unit" name="unit"  >
                         <option value="" selected disabled>Choose...</option>
-<<<<<<< HEAD
                         <option value="minutes" @if (isset($covid->unit)) {{ $covid->unit === 'minutes'? 'selected' : null}} @endif >Minutes</option>
                         <option value="hours" @if (isset($covid->unit)) {{ $covid->unit === 'hours'? 'selected' : null}} @endif >Hours</option>
                         <option value="days" @if (isset($covid->unit)) {{ $covid->unit === 'days'? 'selected' : null}} @endif >Days</option>
                         <option value="weeks" @if (isset($covid->unit)) {{ $covid->unit === 'weeks'? 'selected' : null}} @endif >Weeks</option>
-=======
->>>>>>> db4d2557d8f508d14294caec13818b93f6baf6c9
                         <option value="months" @if (isset($teleconsult->unit)) {{ $teleconsult->unit === 'months'? 'selected' : null}} @endif >Months</option>
                         <option value="years" @if (isset($teleconsult->unit)) {{ $teleconsult->unit === 'years'? 'selected' : null}} @endif >Years</option>
                     </select>
@@ -196,7 +193,7 @@
                 </div>
                 <div class="col-md-2 col-sm-6">
                     <label for="temperature">Temperature</label>
-                    <input type="number" min="1" class="form-control" id="temperature" name="temperature" placeholder="" value="{{ isset($teleconsult->temperature )? $teleconsult->temperature  : old('temperature ') }}" >
+                    <input type="text" min="1" class="form-control" id="temperature" name="temperature" placeholder="" value="{{ isset($teleconsult->temperature )? $teleconsult->temperature  : old('temperature ') }}" >
                     @error('temperature ')
                     <div class="invalid-feedback">
                         {{ $message }}
@@ -278,8 +275,35 @@
             </div>
             <div class="col-md-3 col-sm-12 pt-3">
                 <label for="physician_name">Physician's Name</label>
-                <input type="text" min="1" class="form-control" id="physician_name" placeholder="" value="{{ isset($teleconsult->physician_name )? $teleconsult->physician_name  : old('physician_name ') }}" >
+                <input type="text" min="1" class="form-control" id="physician_name" placeholder="" name="physician_name" value="{{ isset($teleconsult->physician_name )? $teleconsult->physician_name  : old('physician_name ') }}" >
                 @error('physician_name ')
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+                @enderror
+            </div>
+            <div class="col-md-3 col-sm-12 pt-3">
+                <label for="apgar">APGAR Score</label>
+                <input type="text" class="form-control" id="apgar" placeholder="" name="apgar" value="{{ isset($teleconsult->apgar )? $teleconsult->apgar  : old('apgar ') }}" >
+                @error('apgar ')
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+                @enderror
+            </div>
+            <div class="col-md-3 col-sm-12 pt-3">
+                <label for="fhr">FHR</label>
+                <input type="text" class="form-control" name="fhr" id="fhr" placeholder="" value="{{ isset($teleconsult->fhr )? $teleconsult->fhr  : old('fhr ') }}" >
+                @error('fhr ')
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+                @enderror
+            </div>
+            <div class="col-md-3 col-sm-12 pt-3">
+                <label for="gcs">GCS (3 to 15)</label>
+                <input type="text" class="form-control" name="gcs" id="gcs" placeholder="" value="{{ isset($teleconsult->gcs )? $teleconsult->gcs  : old('gcs ') }}" >
+                @error('gcs ')
                 <div class="invalid-feedback">
                     {{ $message }}
                 </div>
@@ -455,7 +479,7 @@
                     </div>
                     <div class="col-md-4 col-sm-12">
                         <label for="contact_of_caller">Contact no. of caller<span class="text-danger">*</span></label>
-                        <input  type="tel" required pattern="[0-9]{10}" class="form-control" id="contact_of_caller" name="contact_of_caller" placeholder="" value="{{ isset($teleconsult->contact_of_caller )? $teleconsult->contact_of_caller  : old('contact_of_caller') }}" >
+                        <input  type="number" class="form-control" id="contact_of_caller" name="contact_of_caller" placeholder="" value="{{ isset($teleconsult->contact_of_caller )? $teleconsult->contact_of_caller  : old('contact_of_caller') }}" >
                         @error('contact_of_caller ')
                         <div class="invalid-feedback">
                             {{ $message }}

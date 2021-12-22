@@ -22,7 +22,7 @@ class CreateCovidsTable extends Migration
             $table->integer('age');
             $table->string('unit');
             $table->string('sex');
-            $table->integer('contact_of_caller');
+            $table->bigInteger('contact_of_caller');
             $table->string('location');
             $table->string('complaints');
             $table->string('vaccine');

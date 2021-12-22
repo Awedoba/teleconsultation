@@ -51,9 +51,11 @@ class CreateTeleconsultsTable extends Migration
             $table->boolean('referred_to_hospital')->default(0);
             $table->boolean('referral_priority')->default(0);
             $table->string('name_of_caller');
-            $table->integer('contact_of_caller');
+            $table->bigInteger('contact_of_caller');
+            $table->string('apgar');
+            $table->string('fhr');
+            $table->string('gcs');
             $table->string('tcc_staff')->nullable();
-
             $table->string('outcome')->nullable();
             $table->string('purpose')->nullable();
             $table->string('referred_to')->nullable();

@@ -50,6 +50,9 @@ class TeleconsultsRangeExport implements FromQuery, WithMapping, WithHeadings
             $teleconsult->contact_of_caller,
             $teleconsult->diagnosis,
             $teleconsult->purpose,
+            $teleconsult->apgar,
+            $teleconsult->gcs,
+            $teleconsult->fhr,
         ];
     }
 
@@ -68,6 +71,9 @@ class TeleconsultsRangeExport implements FromQuery, WithMapping, WithHeadings
             'Contact of caller',
             'Diagnosis',
             'Purpose',
+            'APGAR',
+            'GCS',
+            'FHR'
         ];
     }
 }

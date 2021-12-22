@@ -66,6 +66,9 @@
                 <th scope="col">District</th>
                 <th scope="col">Patient name</th>
                 <th scope="col">Name of caller</th>
+                <th scope="col">APGAR</th>
+                <th scope="col">GCS</th>
+                <th scope="col">FHR</th>
                 <th scope="col">Name of TCC Staff
                 <th scope="col">Actions</th>
             </tr>
@@ -79,6 +82,9 @@
                     <td>{{$teleconsult->district }}</td>
                     <td>{{$teleconsult->patient_first_name }}</td>
                     <td>{{$teleconsult->name_of_caller }}</td>
+                    <td>{{$teleconsult->apgar }}</td>
+                    <td>{{$teleconsult->gcs }}</td>
+                    <td>{{$teleconsult->fhr }}</td>
                     <td>{{$teleconsult->user->name}}</td>
                     <td>
                         <a class="" href="{{route('teleconsult.show',$teleconsult)}}">View</a>

@@ -32,6 +32,7 @@ class CovidsExport implements FromQuery, WithMapping, WithHeadings
             $covid->location,
             $covid->contact_of_caller,
             $covid->complaints,
+            $covid->vaccine,
             $covid->assistance_offered,
         ];
     }
@@ -46,6 +47,7 @@ class CovidsExport implements FromQuery, WithMapping, WithHeadings
             'Location',
             'Contact of caller',
             'Complaint',
+            'Vaccine',
             'Assistance Offered',
         ];
     }
