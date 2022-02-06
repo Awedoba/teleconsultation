@@ -80,6 +80,10 @@
                           <p>{{$teleconsult->age   }}</p>
                       </div>
                       <div class="col-md-2 col-sm-12">
+                          <h5>Unit (Age)</h5>
+                          <p>{{$teleconsult->unit   }}</p>
+                      </div>
+                      <div class="col-md-2 col-sm-12">
                           <h5>Sex</h5>
                           <p>{{$teleconsult->sex }}</p>
                       </div>
@@ -133,6 +137,18 @@
                       <div class="col-md-3 col-sm-12">
                           <h5>Physician's Name</h5>
                           <p>{{$teleconsult->physician_name   }}</p>
+                      </div>
+                      <div class="col-md-3 col-sm-12">
+                          <h5>FHR</h5>
+                          <p>{{$teleconsult->fhr   }}</p>
+                      </div>
+                      <div class="col-md-3 col-sm-12">
+                          <h5>GCS</h5>
+                          <p>{{$teleconsult->gcs   }}</p>
+                      </div>
+                      <div class="col-md-3 col-sm-12">
+                          <h5>APGAR Score</h5>
+                          <p>{{$teleconsult->apgar   }}</p>
                       </div>
                   </div>
               </div>
@@ -270,6 +286,10 @@
                               <div class="col-md-6 col-sm-12 pt-3 pb-3">
                                       <h5 >Referral Status</h5>
                                       <p class="text-capitalize">{{ $teleconsult->referral_status }}</p>
+                              </div>
+                              <div class="col-md-6 col-sm-12 pt-3 pb-3">
+                                      <h5 >Type of case</h5>
+                                      <p class="text-capitalize">{{ $teleconsult->case }}</p>
                               </div>
                           </div>
                       </div>

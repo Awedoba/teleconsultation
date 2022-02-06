@@ -45,7 +45,7 @@
             </div>
             <div class="col-md-6 col-sm-12">
                     <label for="age">Age<span class="text-danger">*</span></label>
-                    <input type="number" required min="1" class="form-control" id="age" name="age" placeholder="" value="{{ isset($covid->age )? $covid->age  : old('age ') }}" >
+                    <input type="text" required min="1" class="form-control" id="age" name="age" placeholder="" value="{{ isset($covid->age )? $covid->age  : old('age ') }}" >
                     @error('age ')
                     <div class="invalid-feedback">
                         {{ $message }}
@@ -54,7 +54,7 @@
                 </div>
                 <div class="col-md-6 col-sm-12">
                     <label for="unit">Unit(Age)<span class="text-danger">*</span></label>
-                    <select required class="custom-select d-block w-100" id="unit" name="unit"  >
+                    <select class="custom-select d-block w-100" id="unit" name="unit"  >
                         <option value="" selected disabled>Choose...</option>
                         <option value="minutes" @if (isset($covid->unit)) {{ $covid->unit === 'minutes'? 'selected' : null}} @endif >Minutes</option>
                         <option value="hours" @if (isset($covid->unit)) {{ $covid->unit === 'hours'? 'selected' : null}} @endif >Hours</option>

@@ -52,16 +52,16 @@ class CreateTeleconsultsTable extends Migration
             $table->boolean('referral_priority')->default(0);
             $table->string('name_of_caller');
             $table->bigInteger('contact_of_caller');
-            $table->string('apgar');
-            $table->string('fhr');
-            $table->string('gcs');
+            $table->string('apgar')->nullable();
+            $table->string('fhr')->nullable();
+            $table->string('gcs')->nullable();
             $table->string('tcc_staff')->nullable();
             $table->string('outcome')->nullable();
             $table->string('purpose')->nullable();
             $table->string('referred_to')->nullable();
             $table->string('referral_status')->nullable();
             $table->string('ambulance_status')->nullable();
-
+            $table->string('case');
         });
     }
 

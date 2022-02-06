@@ -55,6 +55,7 @@ class Teleconsult extends Model
         "referred_to",
         "referral_status",
         "ambulance_status",
+        "case"
     ];
 
     public function encounterDate ()

@@ -66,7 +66,8 @@ class TeleconsultsExport implements FromQuery, WithMapping, WithHeadings
             'Purpose',
             'APGAR',
             'GCS',
-            'FHR'
+            'FHR',
+            'case'
         ];
     }
 }

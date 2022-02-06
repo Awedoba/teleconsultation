@@ -548,6 +548,19 @@
                             </div>
                             @enderror
                         </div>
+                    <div class="col-md-6 col-sm-12">
+                        <label for="unit">Type of Case<span class="text-danger">*</span></label>
+                        <select class="custom-select d-block w-100" id="case" name="case"  >
+                            <option value="" selected disabled>Choose...</option>
+                            <option value="medical" @if (isset($teleconsult->case)) {{ $teleconsult->case === 'medical'? 'selected' : null}} @endif >Medical</option>
+                            <option value="surgical" @if (isset($teleconsult->case)) {{ $teleconsult->case === 'surgical'? 'selected' : null}} @endif >Surgical</option>
+                        </select>
+                        @error('unit ')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                            @enderror
+                        </div>
                     </div>
                 </div>
             </div>

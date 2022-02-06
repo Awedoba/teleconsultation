@@ -27,6 +27,16 @@
                       </div>
                   </div>
                   <div class="row pt-3 pb-3">
+                        <div class="col-md-6 col-sm-12">
+                            <h5>Age</h5>
+                            <p>{{$covid->age}}</p>
+                        </div>  
+                        <div class="col-md-6 col-sm-12">
+                            <h5>Unit of Age</h5>
+                            <p>{{$covid->unit}}</p>
+                        </div>
+                    </div>      
+                  <div class="row pt-3 pb-3">
                       <div class="col-md-6 col-sm-12">
                           <h5>Complaints</h5>
                           <p>{{$covid->complaints }}</p>
