@@ -17,7 +17,7 @@ class CreateCovidsTable extends Migration
             $table->id();
             $table->timestamps();
             $table->string('user_id');
-            $table->date('encounter_date');
+            $table->datetime('encounter_date');
             $table->string('name');
             $table->integer('age');
             $table->string('unit');

@@ -5,8 +5,8 @@
     <div class="col-md-5 col-sm-12">
         <div class="row">
             <div class="col-md-6 col-sm-12">
-                <label for="encounter_date">Encounter Date <span class="text-danger">*</span> </label>
-                <input required type="date" class="form-control" max="{{$date}}" id="encounter_date" name="encounter_date" placeholder="" value="{{ isset($teleconsult->encounter_date)? $teleconsult->encounter_date : old('encounter_date') }}" >
+                <label for="encounter_date">Encounter Datetime<span class="text-danger">*</span> </label>
+                <input required type="datetime-local" class="form-control" max="{{ date('Y-m-d') . 'T23:59' }}" id="encounter_date" name="encounter_date" placeholder="" value="{{ isset($teleconsult->encounter_date)? $teleconsult->encounter_date->format('Y-m-d').'T'.  $teleconsult->encounter_date->format('H:i'): old('encounter_date') }}" >
                 @error('encounter_date')
                 <div class="invalid-feedback">
                     {{ $message }}

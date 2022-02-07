@@ -18,7 +18,7 @@ class CreateTeleconsultsTable extends Migration
             $table->id();
             $table->timestamps();
             $table->foreignId('user_id');
-            $table->date('encounter_date');
+            $table->datetime('encounter_date');
             $table->string('community')->nullable();
             $table->string('patient_first_name');
             $table->string('patient_middle_name')->nullable();

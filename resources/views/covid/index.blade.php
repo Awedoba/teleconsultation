@@ -60,7 +60,7 @@
             <thead>
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">Encounter Date</th>
+                <th scope="col">Encounter Datetime</th>
                 <th scope="col">Name</th>
                 <th scope="col">Sex</th>
                 <th scope="col">Vaccine Status</th>
@@ -74,7 +74,7 @@
             @foreach($covids as $key=>$covid)
                 <tr>
                     <th scope="row">{{$key + 1}}</th>
-                    <td>{{$covid->encounterDate() }}</td>
+                    <td>{{$covid->encounter_date->format('d/m/Y H:i')}}</td>
                     <td>{{$covid->name }}</td>
                     <td>{{$covid->sex }}</td>
                     <td>{{$covid->vaccine }}</td>

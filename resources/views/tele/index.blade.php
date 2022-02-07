@@ -61,7 +61,7 @@
             <thead>
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">Encounter Date</th>
+                <th scope="col">Encounter Datetime</th>
                 <th scope="col">Facility</th>
                 <th scope="col">District</th>
                 <th scope="col">Patient Name</th>
@@ -75,7 +75,7 @@
             @foreach($teleconsults as $key=>$teleconsult)
                 <tr>
                     <th scope="row">{{$key + 1}}</th>
-                    <td>{{$teleconsult->encounterDate()}}</td>
+                    <td>{{$teleconsult->encounter_date->format('d/m/Y H:i')}}</td>
                     <td>{{$teleconsult->facility }}</td>
                     <td>{{$teleconsult->district }}</td>
                     <td>{{$teleconsult->patient_first_name }}</td>

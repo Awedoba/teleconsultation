@@ -24,6 +24,8 @@ class Covid extends Model
         'assistance_offered'
     ];
 
+    protected $dates = ['encounter_date'];
+
     public function user()
     {
         return $this->belongsTo(User::class);

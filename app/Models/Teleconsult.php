@@ -58,9 +58,11 @@ class Teleconsult extends Model
         "case"
     ];
 
+    protected $dates = ['encounter_date'];
+
     public function encounterDate ()
     {
-        return Carbon::createFromFormat('Y-m-d', $this->encounter_date)->format('d-m-Y');
+        return Carbon::createFromFormat('Y-m-d H:i:s', $this->encounter_date)->format('d-m-Y H:i:s');
     }
 
     public function user(){

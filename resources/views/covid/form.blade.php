@@ -6,8 +6,8 @@
     <div class="col-md-5 col-sm-12">
         <div class="row">
             <div class="col-md-6 col-sm-12">
-                <label for="encounter_date">Encounter Date <span class="text-danger">*</span> </label>
-                <input required type="date" class="form-control" max="{{$date}}" id="encounter_date" name="encounter_date" placeholder="" value="{{ isset($covid->encounter_date)? $covid->encounter_date : old('encounter_date') }}" >
+                <label for="encounter_date">Encounter Datetime<span class="text-danger">*</span> </label>
+                <input required type="datetime-local" class="form-control" max="{{ date('Y-m-d') . 'T23:59' }}" id="encounter_date" name="encounter_date" placeholder="" value="{{ isset($covid->encounter_date)? $covid->encounter_date->format('Y-m-d').'T'.  $covid->encounter_date->format('H:i'): old('encounter_date') }}" >
                 @error('encounter_date')
                 <div class="invalid-feedback">
                     {{ $message }}
@@ -15,8 +15,8 @@
                 @enderror
             </div>
             <div class="col-md-6 col-sm-12">
-                <label for="name">Fullname</label>
-                <input type="text" class="form-control" id="facility_opd_no" name="name" placeholder="Fullname" value="{{ isset($covid->name)? $covid->name : old('name') }}" >
+                <label for="name">Fullname<span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="facility_opd_no" name="name" placeholder="Fullname" value="{{ isset($covid->name)? $covid->name : old('name') }}"  required>
                 @error('name')
                 <div class="invalid-feedback">
                     {{ $message }}
@@ -26,8 +26,8 @@
         </div>
         <div class="row">
             <div class="col-md-6 col-sm-12">
-                <label for="Location">Location</label>
-                <input type="text" class="form-control" id="location" name="location" placeholder="" value="{{ isset($covid->location)? $covid->location  : old('location') }}" >
+                <label for="Location">Location<span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="location" name="location" placeholder="" value="{{ isset($covid->location)? $covid->location  : old('location') }}" required>
                 @error('location')
                 <div class="invalid-feedback">
                     {{ $message }}
@@ -35,7 +35,7 @@
                 @enderror
             </div>
             <div class="col-md-6 col-sm-12">
-                <label for="contact_of_caller">Contact number</label>
+                <label for="contact_of_caller">Contact number<span class="text-danger">*</span></label>
                 <input type="number" required class="form-control" id="contact_of_caller" name="contact_of_caller" placeholder="contact_of_caller" value="{{ isset($covid->contact_of_caller)? $covid->contact_of_caller  : old('contact_of_caller') }}" >
                 @error('contact_of_caller')
                 <div class="invalid-feedback">
@@ -54,7 +54,7 @@
                 </div>
                 <div class="col-md-6 col-sm-12">
                     <label for="unit">Unit(Age)<span class="text-danger">*</span></label>
-                    <select class="custom-select d-block w-100" id="unit" name="unit"  >
+                    <select class="custom-select d-block w-100" id="unit" name="unit"  required>
                         <option value="" selected disabled>Choose...</option>
                         <option value="minutes" @if (isset($covid->unit)) {{ $covid->unit === 'minutes'? 'selected' : null}} @endif >Minutes</option>
                         <option value="hours" @if (isset($covid->unit)) {{ $covid->unit === 'hours'? 'selected' : null}} @endif >Hours</option>
@@ -101,7 +101,7 @@
     <div class="col-md-6">
         <div class="row">
             <div class="col-md-12 col-sm-12">
-                <label for="complaints">Complaints</label>
+                <label for="complaints">Complaints<span class="text-danger">*</span></label>
                 <textarea required class="form-control" id="complaints" name="complaints" rows="3" >{{ isset($covid->complaints)? $covid->complaints  : old('complaints ') }}</textarea>
 
                 @error('complaints')
@@ -111,7 +111,7 @@
                 @enderror
             </div>
             <div class="col-md-12 col-sm-12">
-                <label for="assistance_offered">Assistance Offered</label>
+                <label for="assistance_offered">Assistance Offered<span class="text-danger">*</span></label>
                 <textarea required class="form-control" id="assistance_offered" name="assistance_offered" rows="3" >{{ isset($covid->assistance_offered )? $covid->assistance_offered  : old('assistance_offered') }}</textarea>
                 @error('assistance_offered')
                 <div class="invalid-feedback">
